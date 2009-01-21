@@ -26,24 +26,25 @@
 \setlength{\evensidemargin}{-0.25in}
 %-----------------------------------------------------------
 
-\usepackage[empty]{fullpage}
+%\usepackage[empty]{fullpage}
 \usepackage{color}
-\definecolor{mygrey}{gray}{0.80}
-%\raggedbottom
+\definecolor{mygrey}{gray}{0.85}
+\raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
+\pagestyle{empty}
 
 % Adjust margins to 0.5in on all sides
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1.0in}
-\addtolength{\topmargin}{-0.5in}
-\addtolength{\textheight}{1.0in}
+%\addtolength{\oddsidemargin}{-0.5in}
+%\addtolength{\evensidemargin}{-0.5in}
+%\addtolength{\textwidth}{1.0in}
+%\addtolength{\topmargin}{-0.5in}
+%\addtolength{\textheight}{1.0in}
 
 %-----------------------------------------------------------
 %Custom commands
 \newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
-\newcommand{\resheading}[1]{{\large \colorbox{mygrey}{\begin{minipage}{\textwidth}{\textbf{\sc #1 \vphantom{p\^{E}}}}\end{minipage}}}}
+\newcommand{\resheading}[1]{{\large \colorbox{mygrey}{\begin{minipage}{\textwidth}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
 \newcommand{\ressubheading}[4]{
 \begin{tabular*}{6.5in}{l@{\extracolsep{\fill}}r}
 		\textbf{#1} & #2 \\
@@ -193,16 +194,14 @@ Tulsa, OK 74104 &\\
 \begin{description}
 \item[Programming Languages]
 Java, Python, Common Lisp, BASIC, C/C++, Perl, PHP
-\item[Technologies]
-TCP/IP, Computer networking, Shorewall, Mathematica, \LaTeX, XML, SQL, CLIPS, Maya
-\item[Processes]
-Network monitoring, Incident response and computer forensics, Risk assessment and information security policy
+\item[Technologies and Processes]
+TCP/IP, Computer networking, Shorewall, Mathematica, \LaTeX, XML, SQL, CLIPS, Maya, Network monitoring, Incident response and computer forensics, Risk assessment and information security policy
 \item[Platforms]
-Linux (Ubuntu), Windows 2000/XP/Vista (Personal and Server versions), OpenWrt/FreeWrt
+Linux (Ubuntu), Mac OS X, Windows 2000/XP/Vista (Personal and Server versions), OpenWrt/FreeWrt
 \item[Mathematics]
 Numerical analysis, Finite difference methods, Finite element analysis, Real analysis, Discrete mathematics, Modern algebra
 \item[Miscellaneous]
-Excellent troubleshooting and debugging skills, Problem solving skills, Not easily stressed, Strong verbal and written communication skills, including knack for delivering technical information to non-technical individuals
+Excellent problem solving skills, Not easily stressed, Strong communication skills including a knack for delivering technical information to non-technical individuals
 \item[Languages]
 English (Native), Spanish (Basic)
 \end{description}
@@ -212,7 +211,7 @@ English (Native), Spanish (Basic)
 \begin{description}
 \item[Academic] Computer security, Network monitoring and analysis, Network protocols, Free software, Distributed social networking
 \item[Musical] Playing trumpet and harmonica, and composition
-\item[Other] Reading, writing, Roomba hacking
+\item[Other] Reading, Writing, Roomba hacking
 \end{description}
 
 \end{document}
