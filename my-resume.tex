@@ -2,7 +2,8 @@
 %
 % (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author) http://mboedick.org
 % (c) 2003-2007 David J. Grant <davidgrant-at-gmail.com> http://www.davidgrant.ca
-% Modifications January 2009 by George R. Louthan <george@savetheband.net> http://george.savetheband.net
+% (c) 2007 Todd C. Miller <Todd.Miller@courtesan.com> http://www.courtesan.com/todd
+% (c) 2009 George R. Louthan <george@savetheband.net> http://george.savetheband.net
 %
 %This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 2.5 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/2.5/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA.
 
@@ -24,18 +25,25 @@
 \setlength{\oddsidemargin}{-0.25in}
 \setlength{\evensidemargin}{-0.25in}
 %-----------------------------------------------------------
-%\usepackage{fullpage}
-\usepackage{shading}
-%\textheight=9.0in
-\pagestyle{empty}
-\raggedbottom
+
+\usepackage[empty]{fullpage}
+\usepackage{color}
+\definecolor{mygrey}{gray}{0.80}
+%\raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
+
+% Adjust margins to 0.5in on all sides
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
 
 %-----------------------------------------------------------
 %Custom commands
 \newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
-\newcommand{\resheading}[1]{{\large \parashade[.9]{sharpcorners}{\textbf{#1 \vphantom{p\^{E}}}}}}
+\newcommand{\resheading}[1]{{\large \colorbox{mygrey}{\begin{minipage}{\textwidth}{\textbf{\sc #1 \vphantom{p\^{E}}}}\end{minipage}}}}
 \newcommand{\ressubheading}[4]{
 \begin{tabular*}{6.5in}{l@{\extracolsep{\fill}}r}
 		\textbf{#1} & #2 \\
@@ -47,7 +55,7 @@
 \begin{document}
 
 \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
-\textbf{\Large George Louthan}  & 405-822-0758\\
+\textbf{\Large George R. Louthan IV}  & 405.822.0758\\
 \#3331 2822 E. 8th St. &  george-louthan@utulsa.edu \\
 Tulsa, OK 74104 &\\
 \end{tabular*}
@@ -60,7 +68,8 @@ Tulsa, OK 74104 &\\
 \item
 	\ressubheading{University of Tulsa}{Tulsa, OK}{B.S., Computer Science (expected); B.S. Mathematics (expected)}{May, 2009}
 	\begin{itemize}
-		\resitem{Information Security Certificates: CNSS 4011 (Information Security Personnel), CNSS 4012 (Senior System Manager)}
+		\resitem{CNSS 4011 (Information Security Personnel) Federal Information Assurance Certification}
+		\resitem{CNSS 4012 (Senior System Manager) Federal Information Assurance Certification}
 	\end{itemize}
 \end{itemize}
 
@@ -78,64 +87,132 @@ Tulsa, OK 74104 &\\
 \resheading{Projects}
 \begin{itemize}
 \item
-	\ressubheading{NOVA}{Tulsa, OK}{Enterprise Security Group, TU}{Spring 2006 - Spring 2007}
-	\begin{itemize}
-		\resitem{Participated in development of a major network analysis project written in Java}
-		\resitem{Assisted deployment at FAA Computer Security Incident Responce Center}
-	\end{itemize}
-\item
 	\ressubheading{SAND}{Tulsa, OK}{Enterprise Security Group, TU}{Summer 2007 - Present}
 	\begin{itemize}
-		\resitem{Currently leading development of a network monitoring system}
-		\resitem{Deployed at FAA Computer Security Incident Responce Center, December 2007}
-		\resitem{Large amounts of C and Python code}
-	\end{itemize}
-\item
-	\ressubheading{Lunchman}{Tulsa, OK}{University of Tulsa}{Fall 2006 - Spring 2007}
-	\begin{itemize}
-		\resitem{Participated in the technical team for a business plan competition}
-		\resitem{Assisted in the development of prototype web applications for restaurant search and selection}
+		\resitem{Leading a passive network monitoring research group}
+		\resitem{Led the project's deployment at FAA Computer Security Incident Responce Center}
+		\resitem{Currently working with low-level OS integration and higher-level graphical network visualization}
 	\end{itemize}
 \item
 	\ressubheading{Disastro}{Tulsa, OK}{University of Tulsa}{Spring 2009}
 	\begin{itemize}
-		\resitem{Technical lead on non-trivial capstone software engineering course final project}
-		\resitem{Directing and participating in the development of a workflow management system for disaster response}
-		\resitem{Includes SMS, voice phone, and web services integration of urgent information in disaster situations}
+		\resitem{Technical lead and developer for a workflow management system for disaster response}
+		\resitem{Integrating systems for SMS, voice phone, and web services for aggregation and dissemination of urgent relief information in disaster situations}
+	\end{itemize}
+\item
+	\ressubheading{Lunchman}{Tulsa, OK}{University of Tulsa}{Fall 2006 - Spring 2007}
+	\begin{itemize}
+		\resitem{Technical team member for a prototype web application for restaurant search and selection}
+		\resitem{Received runner-up award in the Donald W. Reynolds Governor's Cup business plan competition for 2007}
+	\end{itemize}
+\item
+	\ressubheading{NOVA}{Tulsa, OK}{Enterprise Security Group, TU}{Spring 2006}
+	\begin{itemize}
+		\resitem{Participated in development of a major network analysis project written in Java}
+		\resitem{Assisted deployment at FAA Computer Security Incident Responce Center}
+	\end{itemize}
+\end{itemize}
+
+\resheading{Selected Coursework}
+\begin{itemize}
+\item
+	\ressubheading{Senior Software Projects}{Tulsa, OK}{University of Tulsa}{Fall 2008 - Spring 2009}
+	\begin{itemize}
+		\resitem{Two-course sequence in software engineering, focusing on the Rational Unified Process, including formal and semi-formal methods of specification and design}
+		\resitem{First semester included several non-trivial small group software projects including documentation}
+		\resitem{Second semester included a semester-long major group project (See Disastro in Projects section above)}
+	\end{itemize}
+\item
+	\ressubheading{Compiler Construction}{Tulsa, OK}{University of Tulsa}{Fall 2008}
+	\begin{itemize}
+		\resitem{Studied languages, grammars, syntax-directed translation, finite automata, and other fundamentals of language syntax and semantics}
+		\resitem{Built the frontend of a PASCAL compiler}
+	\end{itemize}
+\item
+	\ressubheading{Operating Systems}{Tulsa, OK}{University of Tulsa}{Fall 2007}
+	\begin{itemize}
+		\resitem{Studied OS principles including process synchronization, threading, scheduling, memory and virtual memory management, and paging}
+		\resitem{Implemented synchronization primitives, user processes, and scheduling in the NACHOS operating system}
+	\end{itemize}
+\item
+	\ressubheading{Artificial Intelligence}{Tulsa, OK}{University of Tulsa}{Fall 2007}
+	\begin{itemize}
+		\resitem{Introduced to fundamentals of AI, including agents and environments, search techniques, rule-based reasoning, logic, game-playing, and planning}
+		\resitem{Completed numerous projects in Common Lisp and with the CLIPS expert system language}
+	\end{itemize}
+\item
+	\ressubheading{Computer Security}{Tulsa, OK}{University of Tulsa}{Spring 2006}
+	\begin{itemize}
+		\resitem{Basic introduction to cryptography, various secure protocols, best practices, network security, and legal and ethical issues in computer security}
+		\resitem{Developed several non-trivial secure software systems, including oblivious transfer; key exchange and management and secure file transfer; and PKI with RSA and X.509 certificates}
+	\end{itemize}
+\item
+	\ressubheading{Computer Networks}{Tulsa, OK}{University of Tulsa}{Don't remember}
+	\begin{itemize}
+		\resitem{Included TCP/IP, the OSI model, encoding, framing, error detection, reliable transmission, and other computer network principles}
+		\resitem{Completed projects including implementing reliable delivery through sliding-window protocol over UDP, and HTTP server}
+	\end{itemize}
+\item
+	\ressubheading{Enterprise Security Management}{Tulsa, OK}{University of Tulsa}{Don't remember}
+	\begin{itemize}
+		\resitem{Studied the managerial aspects of computer security; included development and maintenance of policies and procedures, regulatory compliance, risk management, and disaster planning and recovery}
+		\resitem{Participated in tabletop exercises in risk management, development of specific policies and procedures, and gained familiarity with NIST SP 800-63}
+	\end{itemize}
+\item
+	\ressubheading{Computer Forensics}{Tulsa, OK}{University of Tulsa}{Don't remember}
+	\begin{itemize}
+		\resitem{Topics included incident response and recovery, identification and extraction of electronic evidence, and forensic tools}
+		\resitem{Projects included email tracing, interviewing witnesses, evidence collection, live volatile data collection, network traffic analysis, imaging drives, file restoration, and investigating web attacks}
+	\end{itemize}
+\item
+	\ressubheading{Numerical Methods for IVP/BVPs}{Tulsa, OK}{University of Tulsa}{Fall 2007}
+	\begin{itemize}
+		\resitem{Studied finite element and finite difference methods for elliptic, parabolic, and hyperbolic partial differential equations}
+		\resitem{Developed numerical solutions to problems using the Mathematica software and language}
+	\end{itemize}
+\item
+	\ressubheading{Computer Animation}{Tulsa, OK}{University of Tulsa}{Don't remember}
+	\begin{itemize}
+		\resitem{Introduced to techniques of 3D modeling and animation in a lab setting}
 	\end{itemize}
 \end{itemize}
 
 \resheading{Awards and Honors}
+\begin{center}
 	\begin{tabular*}{6.5in}{l@{\extracolsep{\fill}}r}
-		National Merit Scholar & 2005-Present\\
-		Oklahoma St. Regents for Higher Education Academic Scholar & 2005-Present\\
-		University of Tulsa Presidential Scholar & 2005-Present\\
-		Robert C. Byrd Academic Scholar & 2005-Present\\
-		Tulsa Undergraduate Research Challenge Participant & 2006, 2007, 2008\\
+		Tulsa Undergraduate Research Challenge Participant & 2006-08\\
 		Runner-Up, Donald W. Reynolds Governor's Cup Business Plan Competition & 2007\\
-\end{tabular*}
+		National Merit Scholar & 2005-2009\\
+		Oklahoma St. Regents for Higher Education Academic Scholar & 2005-2009\\
+		University of Tulsa Presidential Scholar & 2005-2009\\
+		Robert C. Byrd Academic Scholar & 2005-2009\\
+	\end{tabular*}
+\end{center}
 
-\resheading{Skills}
-
+\resheading{Skill set}
 \begin{description}
-\item[Languages:]
-C/C++, \LaTeX, Java, Python, PHP, XML, SQL
-\item[Operating Systems:]
-Linux (Debian), UNIX, MacOS X, Windows 95/98/NT/2000/XP
-\item[Applications:]
-Mathematica, \LaTeX, OpenOffice, MS Office, IPTables, Shorewall
-\item[Technologies:]
-TCP/IP, Computer Forensics, OS Security, Relational Databases, Encryption, Wireless Networking
-\item[Miscellaneous:]
-software configuration management, network monitoring, excellent troubleshooting and debugging skills, problem solving skills, strong verbal and written communication skills, including the ability to deliver technical information to non-technical individuals
+\item[Programming Languages]
+Java, Python, Common Lisp, BASIC, C/C++, Perl, PHP
+\item[Technologies]
+TCP/IP, Computer networking, Shorewall, Mathematica, \LaTeX, XML, SQL, CLIPS, Maya
+\item[Processes]
+Network monitoring, Incident response and computer forensics, Risk assessment and information security policy
+\item[Platforms]
+Linux (Ubuntu), Windows 2000/XP/Vista (Personal and Server versions), OpenWrt/FreeWrt
+\item[Mathematics]
+Numerical analysis, Finite difference methods, Finite element analysis, Real analysis, Discrete mathematics, Modern algebra
+\item[Miscellaneous]
+Excellent troubleshooting and debugging skills, Problem solving skills, Not easily stressed, Strong verbal and written communication skills, including knack for delivering technical information to non-technical individuals
+\item[Languages]
+English (Native), Spanish (Basic)
 \end{description}
 
-%\resheading{Interests}
+\resheading{Interests}
 
-%\begin{description}
-%\item[Academic:] Computer security, Network monitoring and analysis, Network protocols, Free software, Distributed social networking
-%\item[Musical:] Playing trumpet and harmonica, and composition
-%\item[Other:] Reading, writing, home automation and robotic vacuum hacking
-%\end{description}
+\begin{description}
+\item[Academic] Computer security, Network monitoring and analysis, Network protocols, Free software, Distributed social networking
+\item[Musical] Playing trumpet and harmonica, and composition
+\item[Other] Reading, writing, Roomba hacking
+\end{description}
 
 \end{document}
