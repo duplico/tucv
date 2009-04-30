@@ -44,10 +44,11 @@
 %-----------------------------------------------------------
 %Custom commands
 \newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+%\newcommand{\resitem}[1]{\item {\parbox[t]{0.8\linewidth}{#1}} \vspace{-2pt}}
 \newcommand{\resheading}[1]{{\large \colorbox{mygrey}{\begin{minipage}{\textwidth}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
 \newcommand{\ressubheading}[4]{
 \begin{tabular*}{6.5in}{l@{\extracolsep{\fill}}r}
-		\textbf{#1} & #2 \\
+		\textbf{\parbox{5in}{\raggedright #1 }} & #2 \\
 		\textit{#3} & \textit{#4} \\
 \end{tabular*}\vspace{-6pt}}
 %-----------------------------------------------------------
@@ -189,6 +190,16 @@ Tulsa, OK 74104 &\\
 		Robert C. Byrd Academic Scholar & 2005-2009\\
 	\end{tabular*}
 \end{center}
+
+\resheading{Publications and Presentations}
+\begin{itemize}
+\item
+	\ressubheading{\emph{Content-based Alternatives to Conventional Network Monitoring}}{CSIIRW '09}{G Louthan, B Deetz, M Walker, and J Hale}{April 2009}
+\item
+	\ressubheading{\emph{Toward Robust and Extensible Network Protocol Identification}}{ICOMP '09}{G Louthan, C McMillan, C Johnson, and J Hale}{July 2009}
+\item
+	\ressubheading{Communication without Boundaries: Breaching the Great Firewall of China}{ICOMP '09}{G Louthan and J Hale}{July 2009}
+\end{itemize}
 
 \resheading{Skill set}
 \begin{description}
