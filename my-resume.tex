@@ -3,7 +3,7 @@
 % (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author) http://mboedick.org
 % (c) 2003-2007 David J. Grant <davidgrant-at-gmail.com> http://www.davidgrant.ca
 % (c) 2007 Todd C. Miller <Todd.Miller@courtesan.com> http://www.courtesan.com/todd
-% (c) 2009 George R. Louthan IV <georgerlouth@nthefourth.com> http://georgerloutha.nthefourth.com
+% (c) 2009-2010 George R. Louthan IV <georgerlouth@nthefourth.com> http://georgerloutha.nthefourth.com
 %
 %This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 2.5 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/2.5/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA.
 
@@ -26,6 +26,7 @@
 \setlength{\evensidemargin}{-0.25in}
 %-----------------------------------------------------------
 
+\usepackage{array}
 \usepackage{color}
 \definecolor{mygrey}{gray}{0.85}
 \raggedbottom
@@ -36,11 +37,13 @@
 
 %-----------------------------------------------------------
 % Custom commands
-\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+\newcommand{\resitem}[1]{\item \parbox[t]{4.6in}{#1} \vspace{-2pt}}
+\newcommand{\resitemd}[2][]{\item[#1] #2 \vspace{-2pt}}
 \newcommand{\resheading}[1]{{\large \colorbox{mygrey}{\begin{minipage}{\textwidth}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
 \newcommand{\ressubheading}[4]{
-\begin{tabular*}{6.5in}{l@{\extracolsep{\fill}}r}
-		\textbf{\parbox{5in}{\raggedright #1 }} & #2 \\
+% TODO: change the parbox directives to being part of the tabular* environment
+\begin{tabular*}{6.5in}[t]{l@{\extracolsep{\fill}}l}
+		\textbf{\parbox[t]{4.5in}{\raggedright #1 }} & \parbox[b]{1.5in}{#2} \\
 		\textit{#3} & \textit{#4} \\
 \end{tabular*}\vspace{-6pt}}
 %-----------------------------------------------------------
@@ -61,40 +64,41 @@ Tulsa, OK 74103 & http://georgerloutha.nthefourth.com \\
 \begin{itemize}
 \item
 	\ressubheading{University of Tulsa}{Tulsa, OK}{M.S., Computer Science (expected)}{May, 2011}
-	\begin{itemize} % UNCOMMENT FOR SHORT FORM
-		\resitem{Federal Information Assurance Certifications CNSS 4013-4016 (expected)}
-	\end{itemize}
+%	\begin{itemize} % UNCOMMENT FOR SHORT FORM
+%		\resitem{Federal Information Assurance Certifications CNSS 4013-4016 (expected)}
+%	\end{itemize}
 \item
 	\ressubheading{University of Tulsa}{Tulsa, OK}{B.S., Computer Science; B.S. Mathematics}{May, 2009}
-	\begin{itemize} % UNCOMMENT FOR SHORT FORM
-		\resitem{Federal Information Assurance Certifications CNSS 4011-4012}
-	\end{itemize}
+%	\begin{itemize} % UNCOMMENT FOR SHORT FORM
+%		\resitem{Federal Information Assurance Certifications CNSS 4011-4012}
+%	\end{itemize}
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%
 % Certs: comment for short form
-%\resheading{Federal Information Assurance Certifications}
-%\begin{center}
-%\begin{minipage}{6.5in}
-%\begin{description}
-%	\begin{tabular*}{6.5in}{l@{\extracolsep{\fill}}}
-%		\item[CNSS-4011] National Training Standard for Information Systems Security Professionals
-%		\item[CNSS-4012] National Information Assurance Training Standard for Senior Systems Managers
-		%\item[CNSS-4013] National Information Assurance Training Standard For System Administrators (Expected 2010)
-		%\item[CNSS-4014] Information Assurance Training Standard for Information Systems Security Officers (Expected 2011)
-%		\item[CNSS-4015] National Training Standard for Systems Certifiers
-		%\item[CNSS-4016] National Information Assurance Training Standard For Risk Analysts (Expected 2010)
-%	\end{tabular*}
-%\end{description}
-%\end{minipage}
-%\end{center}
+\resheading{Certifications}
+\begin{itemize}
+\item
+	\ressubheading{CNSS 4011-4016}{Tulsa, OK}{National Information Assurance Training Standards}{May, 2011}
+	\begin{itemize}
+		\resitem{Issued by the University of Tulsa}
+	\end{itemize}
+\end{itemize}
+
+
+%		\item[4011] National Training Standard for Information Systems Security Professionals
+%		\item[4012] National Information Assurance Training Standard for Senior Systems Managers
+%		\item[4013] National Information Assurance Training Standard For System Administrators
+%		\item[4014] Information Assurance Training Standard for Information Systems Security Officers (Expected 2011)
+%		\item[4015] National Training Standard for Systems Certifiers
+%		\item[4016] National Information Assurance Training Standard For Risk Analysts
 
 % End certs
 
 \resheading{Employment History}
 \begin{itemize}
 \item
-	\ressubheading{Institute for Information Security, TU}{Tulsa, OK}{Research Assistant}{May 2009 - Present}
+	\ressubheading{Institute for Information Security at the University of Tulsa}{Tulsa, OK}{Research Assistant}{May 2009 - Present}
 	\begin{itemize}
 		\resitem{Student lead for a formal methods research project}
 		\resitem{Overseeing the deployment and upkeep of the Institute's computer systems}
@@ -117,8 +121,17 @@ Tulsa, OK 74103 & http://georgerloutha.nthefourth.com \\
 
 \resheading{Courses Taught}
 \begin{itemize}
+
 \item
-	\ressubheading{Fundamentals of Algorithm and Computer Applications Lab}{Tulsa, OK}{University of Tulsa}{Spring 2010}
+	\ressubheading{Information Security -- Assurance and Risk Assessment}{Tulsa, OK}{TU Continuing Engineering \& Science Education}{May 11-12, 2010}
+	\begin{itemize}
+		\resitem{Instructed applied portions of a short course in information security for the Information Systems Audit and Control Association (ISACA)}
+		\resitem{Developed and led interactive demonstrations of SQL injection, cross-site scripting, ARP poisoning, SSL spoofing, wireless sniffing, and browser securty}
+		\resitem{Lectured and led discussion on the above topics, as well as public key cryptography and infrastructure, SSL, DNS, and ARP}
+	\end{itemize}
+
+\item
+	\ressubheading{Fundamentals of Algorithms and Computer Applications Lab}{Tulsa, OK}{University of Tulsa}{Spring 2010}
 	\begin{itemize}
 		\resitem{Weekly sophomore-level lab section for assisting students with weekly assignments}
 		\resitem{Topics include basic data structures, sorting, searching, and basic analysis of algorithms}
@@ -126,7 +139,15 @@ Tulsa, OK 74103 & http://georgerloutha.nthefourth.com \\
 \end{itemize}
 
 \resheading{Projects}
+
 \begin{itemize}
+\item
+	\ressubheading{GSM Scale}{Tulsa, OK}{}{June 2010 - Present}
+	\begin{itemize}
+		\resitem{Developing a system for wirelessly collecting, recording, and analyzing patients' weights}
+		\resitem{Working with Alexander Barclay (Laureate Institute for Brain Research), and Kevin Hall (National Institute of Diabetes and Digestive and Kidney Diseases)}
+	\end{itemize}
+
 \item
 	\ressubheading{Cyber-physical Systems}{Tulsa, OK}{Institute for Information Security, TU}{Jan 2010 - Present}
 	\begin{itemize}
@@ -134,19 +155,19 @@ Tulsa, OK 74103 & http://georgerloutha.nthefourth.com \\
 		\resitem{Building a formal framework for modeling and analyzing networked process control systems}
 	\end{itemize}
 
-\item
-	\ressubheading{Deployment Plan}{Tulsa, OK}{University of Tulsa}{Spring 2010}
-	\begin{itemize}
-		\resitem{Writing a comprehensive deployment plan for a generic enterprise computing system.}
-		\resitem{Included hardware and software deployment procedures and checklists, maintenance, as well as business IT policies (e.g. backup/restore, acceptable use, remote access, password, etc.)}
-	\end{itemize}
+%\item
+%	\ressubheading{Deployment Plan}{Tulsa, OK}{University of Tulsa}{Spring 2010}
+%	\begin{itemize}
+%		\resitem{Writing a comprehensive deployment plan for a generic enterprise computing system.}
+%		\resitem{Included hardware and software deployment procedures and checklists, maintenance, as well as business IT policies (e.g. backup/restore, acceptable use, remote access, password, etc.)}
+%	\end{itemize}
 
-\item
-	\ressubheading{Intrusion Detection System}{Tulsa, OK}{University of Tulsa}{Spring 2010}
-	\begin{itemize}
-		\resitem{Developing a Snort rule compatible network intrusion detection system in Java}
+%\item
+%	\ressubheading{Intrusion Detection System}{Tulsa, OK}{University of Tulsa}{Spring 2010}
+%	\begin{itemize}
+%		\resitem{Developing a Snort rule compatible network intrusion detection system in Java}
 %		\resitem{Includes packet sniffing and parsing as well as generation, running directly on libpcap}
-	\end{itemize}
+%	\end{itemize}
 
 \item
 	\ressubheading{SAND/DVNE}{Tulsa, OK}{Enterprise Security Group, TU}{Summer 2007 - Present}
@@ -277,6 +298,24 @@ Tulsa, OK 74103 & http://georgerloutha.nthefourth.com \\
 %		\resitem{Projects included email tracing, interviewing witnesses, evidence collection, live volatile data collection, network traffic analysis, imaging drives, file restoration, and investigating web attacks}
 	\end{itemize}
 \end{itemize}
+\resheading{Conferences}
+\begin{center}
+	\begin{tabular*}{6.5in}{m{5in}@{\extracolsep{\fill}}r}
+		International Conference for High Performance Computing, Networking, Storage and Analysis 2008 (SC08) & Participant \\
+		IT Security World Conference and Expo 2008 & Exhibitor \\
+		12th TU Student Research Colloquium and 84th AAAS-SWARM Regional Meeting & Speaker, Session Chair \\
+		DEFCON 16 & Participant (Human) \\
+		Computer Security and Information Intelligence Research Workshop (CSIIRW) 2009 & Speaker \\
+		The 2009 International Conference on Internet Computing (ICOMP `09) at WORLDCOMP `09 & Speaker \\
+		DEFCON 17 & Speaker \\
+		18th USENIX Security Symposium & Poster Presenter \\
+		13th TU Student Research Colloquium & General Co-chair, Speaker \\
+		Blackhat USA 2010 & Participant \\
+		DEFCON 18 & Participant (Human) \\
+		19th USENIX Security Symposium & Workshop Speaker \\
+	\end{tabular*}
+\end{center}
+
 \resheading{Awards and Honors}
 \begin{center}
 	\begin{tabular*}{6.5in}{l@{\extracolsep{\fill}}r}
@@ -295,11 +334,15 @@ Tulsa, OK 74103 & http://georgerloutha.nthefourth.com \\
 \resheading{Publications and Presentations}
 \begin{itemize}
 \item
+	\ressubheading{\emph{The Blunderdome: An Offensive Exercise for Building Network, Systems, and Web Security Awareness}\footnotemark[1]}{CSET 2010 at 19th USENIX Security Symposium}{P Gehres, N Singleton, G Louthan, and J Hale}{July 2010}
+\item
+	\ressubheading{\emph{Toward Sensitive Information Redaction in a Collaborative, Multilevel Security Environment}\footnotemark[1]}{WikiSym 2010}{P Gehres, N Singleton, G Louthan, and J Hale}{July 2010}
+\item
 	\ressubheading{\emph{Towards Formal Analysis of Cyber-Physical Systems}}{TU Colloquium}{G Louthan, N Singleton, M Papa, and J Hale}{March 2010}
 \item
-	\ressubheading{\emph{Large-scale Multitouch Interactive Network Visualization} (Poster)}{USENIX Security}{C Pollet, G Louthan and J Hale}{August 2009}
+	\ressubheading{\emph{Large-scale Multitouch Interactive Network Visualization} (Poster)}{USENIX Security 18}{C Pollet, G Louthan and J Hale}{August 2009}
 \item
-	\ressubheading{\emph{SAND: An Architecture for Signature-based Automatic Network Protocol Detection} (Poster)}{USENIX Security}{G Louthan and J Hale}{August 2009}
+	\ressubheading{\emph{SAND: An Architecture for Signature-based Automatic Network Protocol Detection} (Poster)}{USENIX Security 18}{G Louthan and J Hale}{August 2009}
 \item
 	\ressubheading{\emph{Hack Like the Movie Stars: A Big-Screen Multitouch Network Monitor}}{DEFCON 17}{G Louthan, C Pollet, and J Hale}{August 2009}
 \item
