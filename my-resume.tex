@@ -52,12 +52,12 @@
 
 % Custom commands
 
-% Resume item: corrects spacing for itemized entries (includes \item)
-\newcommand{\resitem}[1]{\item \parbox[t]{4.6in}{#1} \vspace{-2pt}}
-
-% Resume item description (not ready yet.) Like \resitem but in a
-% description environment.
-\newcommand{\resitemd}[2][]{\item[#1] #2 \vspace{-2pt}}
+%% Resume item: corrects spacing for itemized entries (includes \item)
+%\newcommand{\resitem}[1]{\item \parbox[t]{4.6in}{#1} \vspace{-2pt}}
+%
+%% Resume item description (not ready yet.) Like \resitem but in a
+%% description environment.
+%\newcommand{\resitemd}[2][]{\item[#1] #2 \vspace{-2pt}}
 
 % Resume heading. Heading inside a shaded box.
 \newcommand{\resheading}[1]{{\large \colorbox{mygrey}{\begin{minipage}
@@ -66,10 +66,9 @@
 % Resume entry (used for subheading)
 \newcommand{\resentry}[3][0pt]{
     \begin{tabular*}{0.9\textwidth}[t]{@{\hspace{#1}}p{5.0in-#1}@{\extracolsep{\fill}}p{0.75in}}
-    %\begin{tabular}[t]{p{5.0in}@{\hfill}p{0.75in}}
         #2 & #3
         \tabularnewline
-    \end{tabular*} %\vspace{-6pt}
+    \end{tabular*}
 }
 
 % Resume entry (single column)
@@ -78,7 +77,7 @@
     %\begin{tabular}[t]{p{5.0in}@{\hfill}p{0.75in}}
         #2
         \tabularnewline
-    \end{tabular*} %\vspace{-6pt}
+    \end{tabular*}
 }
 
 % Resume subheading
@@ -112,7 +111,7 @@
 
 \newcommand{\resdegreeextra}[4]{
     \resentry[10pt]{
-\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex} #1 #2 \newline #4}{#3}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex} #1 #2 \newline \textit{#4}}{#3}
 }
 
 % Combined school and degree (plus other) entry:
@@ -158,39 +157,31 @@ Tulsa, OK 74103 & http://georgerloutha.nthefourth.com \\
 
 \resheading{Education}
 \begin{itemize}
-\item
-        \resschool{University of Tulsa}{Tulsa, OK}{
-            \resdegreeextra{M.S.}{Computer Science}{May 2011}{(expected)}
+\item \resschool{University of Tulsa}{Tulsa, OK}{
+            \resdegreeextra{M.S.}{Computer Science}{May 2011 \newline (expected)}{
+            Thesis: A Formal Approach to Cyber-Physical Event Reconstruction
+            With Hybrid Automata}
             \resdegree{B.S.}{Computer Science}{May 2009}
             \resdegree{B.S.}{Mathematics}{May 2009}
         }
-        
-%        \resdegree{University of Tulsa}{M.S.}{Computer Science}{May 2011}
-%        {Tulsa, OK}{Thesis: Formal Modeling of Hybrid Systems}
-%\item
-%        \resdegree{University of Tulsa}{B.S.}{Computer Science}
-%        {May 2009}{Tulsa, OK}{B.S. Mathematics}
 \end{itemize}
-
-%%%%%%%%%%%%%%%%%
-% Certs: comment for short form
 \resheading{Certifications}
 \begin{itemize}
 \item
-	\ressubheading{CNSS 4011-4016}{Tulsa, OK}{Issued by the University of Tulsa. National Information Assurance Training Standards:}{2006 - 2011}
-        \begin{description}
-		\item[4011] for Information Systems Security Professionals
-		\item[4012] for Senior Systems Managers
-		\item[4013] for System Administrators
-		\item[4014] for Information Systems Security Officers (Expected 2011)
-		\item[4015] for Systems Certifiers
-		\item[4016] for Risk Analysts
-        \end{description}
+	\ressubheading{CNSS National Information Assurance Training Standards}
+        {Tulsa, OK}{CNSS 4011-4016, Issued by the University of
+        Tulsa}{2006 - 2011}
+%        \begin{description}
+%		\item[4011] for Information Systems Security Professionals
+%		\item[4012] for Senior Systems Managers
+%		\item[4013] for System Administrators
+%		\item[4014] for Information Systems Security Officers (Expected 2011)
+%		\item[4015] for Systems Certifiers
+%		\item[4016] for Risk Analysts
+%        \end{description}
 \end{itemize}
 
 % End certs
-
-
 \resheading{Employment History}
 \begin{itemize}
 \item
@@ -226,7 +217,7 @@ NSA/CSS Center of Excellence in information assurance.}
 {Side venture between myself and a TU colleague as a custom software contractor,
 working in database and web services.}
 {
-    \resjob{Partner/Developer}{Jul 2010}{Present}{
+    \resjob{Co-owner/Developer}{Jul 2010}{Present}{
     Co-founder of the company as well as web and database developer in Python's
     Django framework. Developing two production systems for patient management
     and subject tracking for a psychiatric hospital and brain research
