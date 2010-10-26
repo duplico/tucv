@@ -1,16 +1,24 @@
-% resume.tex
+% (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author)
+%       http://mboedick.org
+% (c) 2003-2007 David J. Grant <davidgrant-at-gmail.com>
+%       http://www.davidgrant.ca
+% (c) 2007 Todd C. Miller <Todd.Miller@courtesan.com>
+%       http://www.courtesan.com/todd
+% (c) 2009-2010 George R. Louthan IV <georgerlouth@nthefourth.com>
+%       http://georgerloutha.nthefourth.com
 %
-% (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author) http://mboedick.org
-% (c) 2003-2007 David J. Grant <davidgrant-at-gmail.com> http://www.davidgrant.ca
-% (c) 2007 Todd C. Miller <Todd.Miller@courtesan.com> http://www.courtesan.com/todd
-% (c) 2009-2010 George R. Louthan IV <georgerlouth@nthefourth.com> http://georgerloutha.nthefourth.com
+% This work is licensed under the Creative Commons Attribution-Noncommercial-
+% Share Alike 2.5 License. To view a copy of this license, visit
+% http://creativecommons.org/licenses/by-nc-sa/2.5/ or send a letter to:
 %
-%This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 2.5 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/2.5/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA.
+% Creative Commons
+% 543 Howard Street
+% 5th Floor
+% San Francisco, CA 94105
 
 \documentclass[letterpaper,11pt]{article}
 
-%-----------------------------------------------------------
-%Margin setup
+% Margin setup
 
 \setlength{\voffset}{0.1in}
 \setlength{\paperwidth}{8.5in}
@@ -24,7 +32,8 @@
 \setlength{\topskip}{0in}
 \setlength{\oddsidemargin}{-0.25in}
 \setlength{\evensidemargin}{-0.25in}
-%-----------------------------------------------------------
+
+% Style setup
 
 \usepackage{array}
 \usepackage{color}
@@ -35,22 +44,31 @@
 \pagestyle{empty}
 
 
-%-----------------------------------------------------------
 % Custom commands
+
+% Resume item: corrects spacing for itemized entries (includes \item)
 \newcommand{\resitem}[1]{\item \parbox[t]{4.6in}{#1} \vspace{-2pt}}
+
+% Resume item description (not ready yet.) Like \resitem but in a
+% description environment.
 \newcommand{\resitemd}[2][]{\item[#1] #2 \vspace{-2pt}}
-\newcommand{\resheading}[1]{{\large \colorbox{mygrey}{\begin{minipage}{\textwidth}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
+
+% Resume heading. Heading inside a shaded box.
+\newcommand{\resheading}[1]{{\large \colorbox{mygrey}{\begin{minipage}
+    {\textwidth}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
+
+% Resume subheading - two lines, BOLD & PLAIN \\ PLAIN & ITALIC
 \newcommand{\ressubheading}[4]{
 % TODO: change the parbox directives to being part of the tabular* environment
 \begin{tabular*}{6.5in}[t]{l@{\extracolsep{\fill}}l}
 		\textbf{\parbox[t]{4.5in}{\raggedright #1 }} & \parbox[b]{1.5in}{#2} \\
 		\textit{#3} & \textit{#4} \\
 \end{tabular*}\vspace{-6pt}}
-%-----------------------------------------------------------
 
 
 \begin{document}
 
+% Heading and name/contact info table
 \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
 \textbf{\Large George R. Louthan IV}  & 918.289.2458\\
 20 E Archer \#604 &  georgerlouth@nthefourth.com \\
