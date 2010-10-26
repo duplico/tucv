@@ -30,13 +30,16 @@
 \setlength{\topmargin}{-0.25in}
 \setlength{\textwidth}{7in}
 \setlength{\topskip}{0in}
+\setlength{\partopsep}{0pt}
 \setlength{\oddsidemargin}{-0.25in}
 \setlength{\evensidemargin}{-0.25in}
 
 % Style setup
 
+\usepackage{tabularx}
 \usepackage{array}
 \usepackage{color}
+\usepackage{paralist}
 \definecolor{mygrey}{gray}{0.85}
 \raggedbottom
 \raggedright
@@ -57,14 +60,45 @@
 \newcommand{\resheading}[1]{{\large \colorbox{mygrey}{\begin{minipage}
     {\textwidth}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
 
-% Resume subheading - two lines, BOLD & PLAIN \\ PLAIN & ITALIC
-\newcommand{\ressubheading}[4]{
-% TODO: change the parbox directives to being part of the tabular* environment
-\begin{tabular*}{6.5in}[t]{l@{\extracolsep{\fill}}l}
-		\textbf{\parbox[t]{4.5in}{\raggedright #1 }} & \parbox[b]{1.5in}{#2} \\
-		\textit{#3} & \textit{#4} \\
-\end{tabular*}\vspace{-6pt}}
+% Resume entry (used for subheading)
+\newcommand{\resentry}[3][0pt]{
+    \begin{tabular*}{0.9\textwidth}[t]{@{\hspace{#1}}p{5.0in}@{\extracolsep{\fill}}p{0.75in}}
+    %\begin{tabular}[t]{p{5.0in}@{\hfill}p{0.75in}}
+        #2 & #3
+        \tabularnewline
+    \end{tabular*} %\vspace{-6pt}
+}
 
+% Resume subheading
+\newcommand{\ressubheading}[4]{
+    \resentry{\textbf{#1} \newline #3}{#2 \newline #4}    
+}
+
+% Resume subheading with extra information
+\newcommand{\ressubheadingextra}[5]{
+    \resentry{\textbf{#1} \newline #3 \newline #5}{#2 \newline #4}
+}
+
+% Specific entry types:
+
+% Degree
+% University, Degree, Major, Date, Location, Other
+\newcommand{\resdegree}[6]{
+    \ressubheadingextra{#1}{#5}{#2 #3}{#4}{#6}
+    %\resentry{\textbf{#1} \newline #2 #3 \newline #6}{#4 \newline #5}  
+}
+
+% Work experience:
+% Employer, Location, Description, Jobs
+\newcommand{\resemployer}[4]{
+    \resentry{\textbf{#1} \newline #3 \newline #4}{#2}
+}
+
+% Work experience:
+% Title, Start Date, End Date, Description
+\newcommand{\resjob}[4]{
+    \resentry[10pt]{\textbf{#1} \newline #4}{#2 - \newline #3}
+}
 
 \begin{document}
 
@@ -81,15 +115,11 @@ Tulsa, OK 74103 & http://georgerloutha.nthefourth.com \\
 \resheading{Education}
 \begin{itemize}
 \item
-	\ressubheading{University of Tulsa}{Tulsa, OK}{M.S., Computer Science (expected)}{May, 2011}
-%	\begin{itemize} % UNCOMMENT FOR SHORT FORM
-%		\resitem{Federal Information Assurance Certifications CNSS 4013-4016 (expected)}
-%	\end{itemize}
+        \resdegree{University of Tulsa}{M.S.}{Computer Science}{May 2011}
+        {Tulsa, OK}{Thesis: Formal Modeling of Hybrid Systems}
 \item
-	\ressubheading{University of Tulsa}{Tulsa, OK}{B.S., Computer Science; B.S. Mathematics}{May, 2009}
-%	\begin{itemize} % UNCOMMENT FOR SHORT FORM
-%		\resitem{Federal Information Assurance Certifications CNSS 4011-4012}
-%	\end{itemize}
+        \resdegree{University of Tulsa}{B.S.}{Computer Science and Mathematics}
+        {May 2009}{Tulsa, OK}{}
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%
@@ -97,12 +127,11 @@ Tulsa, OK 74103 & http://georgerloutha.nthefourth.com \\
 \resheading{Certifications}
 \begin{itemize}
 \item
-	\ressubheading{CNSS 4011-4016}{Tulsa, OK}{National Information Assurance Training Standards}{May, 2011}
+	\ressubheading{CNSS 4011-4016}{Tulsa, OK}{National Information Assurance Training Standards}{May 2011}
 	\begin{itemize}
 		\resitem{Issued by the University of Tulsa}
 	\end{itemize}
 \end{itemize}
-
 
 %		\item[4011] National Training Standard for Information Systems Security Professionals
 %		\item[4012] National Information Assurance Training Standard for Senior Systems Managers
@@ -113,17 +142,27 @@ Tulsa, OK 74103 & http://georgerloutha.nthefourth.com \\
 
 % End certs
 
+
 \resheading{Employment History}
 \begin{itemize}
 \item
+\resemployer{Institute for Information Security}{Tulsa, OK}
+{TU thingy that does stuff}
+{
+    \resjob{Research Assistant}{May 2009}{Present}{
+        Serving as the student lead for a formal methods research project.
+        
+        Led the development and deployment of the Institute's IT infrastructure
+        and supervising its upkeep (approximately 40 workstations and 5 servers).
+    }
+}
+
+\item
 	\ressubheading{Institute for Information Security at the University of Tulsa}{Tulsa, OK}{Research Assistant}{May 2009 - Present}
-	\begin{itemize}
-		\resitem{Student lead for a formal methods research project}
-		\resitem{Overseeing the deployment and upkeep of the Institute's computer systems}
-	\end{itemize}
+
 
 %\item
-%	\ressubheading{University of Tulsa}{Tulsa, OK}{Teaching Assistant}{Spring 2010}
+%	\ressubheading{University of Tulsa}{Tulsa, OK}{Teaching Assistant}{Jan 2010 - May 2010}
 %	\begin{itemize}
 %		\resitem{Assisting students in learning Java}
 %		\resitem{Teaching a sophomore-level programming lab}
@@ -141,7 +180,7 @@ Tulsa, OK 74103 & http://georgerloutha.nthefourth.com \\
 \begin{itemize}
 
 \item
-	\ressubheading{Information Security -- Assurance and Risk Assessment}{Tulsa, OK}{TU Continuing Engineering \& Science Education}{May 11-12, 2010}
+	\ressubheading{Information Security -- Assurance and Risk Assessment}{Tulsa, OK}{TU Continuing Engineering \& Science Education}{May 2010}
 	\begin{itemize}
 		\resitem{Instructed applied portions of a short course in information security for the Information Systems Audit and Control Association (ISACA)}
 		\resitem{Developed and led interactive demonstrations of SQL injection, cross-site scripting, ARP poisoning, SSL spoofing, wireless sniffing, and browser securty}
@@ -149,7 +188,7 @@ Tulsa, OK 74103 & http://georgerloutha.nthefourth.com \\
 	\end{itemize}
 
 \item
-	\ressubheading{Fundamentals of Algorithms and Computer Applications Lab}{Tulsa, OK}{University of Tulsa}{Spring 2010}
+	\ressubheading{Fundamentals of Algorithms and Computer Applications Lab}{Tulsa, OK}{University of Tulsa}{Jan 2010 - May 2010}
 	\begin{itemize}
 		\resitem{Weekly sophomore-level lab section for assisting students with weekly assignments}
 		\resitem{Topics include basic data structures, sorting, searching, and basic analysis of algorithms}
@@ -174,7 +213,7 @@ Tulsa, OK 74103 & http://georgerloutha.nthefourth.com \\
 	\end{itemize}
 
 %\item
-%	\ressubheading{Deployment Plan}{Tulsa, OK}{University of Tulsa}{Spring 2010}
+%	\ressubheading{Deployment Plan}{Tulsa, OK}{University of Tulsa}{Jan 2010 - May 2010}
 %	\begin{itemize}
 %		\resitem{Writing a comprehensive deployment plan for a generic enterprise computing system.}
 %		\resitem{Included hardware and software deployment procedures and checklists, maintenance, as well as business IT policies (e.g. backup/restore, acceptable use, remote access, password, etc.)}
@@ -188,7 +227,7 @@ Tulsa, OK 74103 & http://georgerloutha.nthefourth.com \\
 %	\end{itemize}
 
 \item
-	\ressubheading{SAND/DVNE}{Tulsa, OK}{Enterprise Security Group, TU}{Summer 2007 - Present}
+	\ressubheading{SAND/DVNE}{Tulsa, OK}{Enterprise Security Group, TU}{May 2007 - Present}
 	\begin{itemize}
 		\resitem{Led a network monitoring research group}
 		\resitem{Led the project's deployment at FAA Computer Security Incident Response Center}
@@ -196,126 +235,42 @@ Tulsa, OK 74103 & http://georgerloutha.nthefourth.com \\
 		\resitem{Presented with Cody Pollet at DEFCON 17 and as a poster at USENIX Security 2009}
 	\end{itemize}
 %\item
-%	\ressubheading{Disastro}{Tulsa, OK}{University of Tulsa}{Spring 2009}
+%	\ressubheading{Disastro}{Tulsa, OK}{University of Tulsa}{Jan 2009 - May 2009}
 %	\begin{itemize}
 %		\resitem{Functioned as technical lead and developer for a citizen-facing relief management system for disaster response}
 %		\resitem{Integrated systems for voice phone (IVR), and web services for aggregation and dissemination of urgent relief information in disaster situations}
 %	\end{itemize}
 %\item
-%	\ressubheading{Lunchman}{Tulsa, OK}{University of Tulsa}{Fall 2006 - Spring 2007}
+%	\ressubheading{Lunchman}{Tulsa, OK}{University of Tulsa}{Aug 2006 - May 2007}
 %	\begin{itemize}
 %		\resitem{Technical team member for a prototype web application for restaurant search and selection}
 %		\resitem{Received runner-up award in the Donald W. Reynolds Governor's Cup business plan competition for 2007}
 %	\end{itemize}
 %\item
-%	\ressubheading{NOVA}{Tulsa, OK}{Enterprise Security Group, TU}{Spring 2006}
+%	\ressubheading{NOVA}{Tulsa, OK}{Enterprise Security Group, TU}{Jan 2006 - May 2006}
 %	\begin{itemize}
 %		\resitem{Participated in development of a major network analysis project written in Java}
 %		\resitem{Assisted deployment at FAA Computer Security Incident Responce Center}
 %	\end{itemize}
 \end{itemize}
 
-\resheading{Selected Coursework}
-\begin{itemize}
-
-\item
+\resheading{Academics}
 	\ressubheading{Network Security}{Tulsa, OK}{University of Tulsa}{Spring 2010}
-	\begin{itemize}
-		\resitem{Topics included host-based and network-based intrusion detection, anomaly and misuse detection, and appliances including firewalls}
-		\resitem{Semester-long project to build a Snort-compatible network intrusion detection system}
-	\end{itemize}
-\item
 	\ressubheading{Secure System Administration}{Tulsa, OK}{University of Tulsa}{Spring 2010}
-	\begin{itemize}
-		\resitem{Topics included provisioning, procurement and installation of network, hardware and software systems, as well as incident handling.}
-		\resitem{Emphasis on specific policy and procedure development (acceptable use, password, backup and restore, data redundancy, patch management, etc)}
-		\resitem{Semester-long project to develop a complete deployment plan for an enterprise computing system}
-	\end{itemize}
-\item
 	\ressubheading{Risk Management for Information Systems}{Tulsa, OK}{University of Tulsa}{Spring 2010}
-	\begin{itemize}
-		\resitem{Risk analysis and threat profiling for mission critical information systems. Adversarial analysis and countermeasure synthesis. Policy development and implementation. Incident handling and response.}
-	\end{itemize}
-%\item
-%	\ressubheading{Computational Neuroscience}{Tulsa, OK}{University of Tulsa}{Fall 2009}
-%	\begin{itemize}
-%		\resitem{Fundamentals of neurobiology and neurochemistry for the central nervous system and neuromuscular junction.}
-%		\resitem{Neurological modeling techniques including circuit-equivalent model, integrate and fire, leaky integrator, and artificial neural networks.}
-%	\end{itemize}
-\item
+	\ressubheading{Computational Neuroscience}{Tulsa, OK}{University of Tulsa}{Fall 2009}
 	\ressubheading{Information Systems Assurance}{Tulsa, OK}{University of Tulsa}{Fall 2009}
-	\begin{itemize}
-		\resitem{Included design and analysis methods for high assurance information systems, formal models such as Biba and Bell-LaPadula.}
-		\resitem{Emphasis on security controls documents, specifically DIACAP (DoD Instruction 8510.01) and NIST SP 800-53}
-		\resitem{Built from scratch a set theoretic formal model for contingency planning}
-	\end{itemize}
-%\item
-%	\ressubheading{Machine Learning}{Tulsa, OK}{University of Tulsa}{Fall 2009}
-%	\begin{itemize}
-%		\resitem{Survey of machine learning topics, including decision trees and ID3, genetic algorithms, artificial neural networks with backpropogation, reinforcement learning, unsupervised learning, and game theory}
-%	\end{itemize}
-%\item
-%	\ressubheading{Senior Software Projects}{Tulsa, OK}{University of Tulsa}{Fall 2008 - Spring 2009}
-%	\begin{itemize}
-%		\resitem{Two-course sequence in software engineering, focusing on the Rational Unified Process, including formal and semi-formal methods of specification and design}
-%		\resitem{First semester included several non-trivial small group software projects including documentation}
-%		\resitem{Second semester included a semester-long major group project (See Disastro in Projects section above)}
-%	\end{itemize}
-%\item
-%	\ressubheading{Compiler Construction}{Tulsa, OK}{University of Tulsa}{Fall 2008}
-%	\begin{itemize}
-%		\resitem{Studied languages, grammars, syntax-directed translation, finite automata, and other fundamentals of language syntax and semantics}
-%		\resitem{Built the frontend of a PASCAL compiler}
-%	\end{itemize}
-%\item
-%	\ressubheading{Operating Systems}{Tulsa, OK}{University of Tulsa}{Spring 2008}
-%	\begin{itemize}
-%		\resitem{Studied OS principles including process synchronization, threading, scheduling, memory and virtual memory management, and paging}
-%		\resitem{Implemented synchronization primitives, user processes, and scheduling in the NACHOS operating system}
-%	\end{itemize}
-%\item
-%	\ressubheading{Artificial Intelligence}{Tulsa, OK}{University of Tulsa}{Spring 2008}
-%	\begin{itemize}
-%		\resitem{Introduced to fundamentals of AI, including agents and environments, search techniques, rule-based reasoning, logic, game-playing, and planning}
-%		\resitem{Completed numerous projects in Common Lisp, including CLOS, and with the CLIPS expert system language}
-%	\end{itemize}
-%\item
-%	\ressubheading{Numerical Methods for IVP/BVPs}{Tulsa, OK}{University of Tulsa}{Spring 2008}
-%	\begin{itemize}
-%		\resitem{Studied finite element and finite difference methods for elliptic, parabolic, and hyperbolic partial differential equations}
-%		\resitem{Developed numerical solutions to problems using the Mathematica software and language}
-%	\end{itemize}
-%\item
-%	\ressubheading{Computer Animation}{Tulsa, OK}{University of Tulsa}{Spring 2008}
-%	\begin{itemize}
-%		\resitem{Introduced to techniques of 3D modeling and animation in a lab setting}
-%	\end{itemize}
-%\item
-%	\ressubheading{Computer Networks}{Tulsa, OK}{University of Tulsa}{Fall 2007}
-%	\begin{itemize}
-%		\resitem{Included TCP/IP, the OSI model, encoding, framing, error detection, reliable transmission, and other computer network principles}
-%		\resitem{Completed projects including implementing reliable delivery through sliding-window protocol over UDP, and HTTP server}
-%	\end{itemize}
-\item
+	\ressubheading{Machine Learning}{Tulsa, OK}{University of Tulsa}{Fall 2009}
+	\ressubheading{Senior Software Projects}{Tulsa, OK}{University of Tulsa}{Fall 2008 - Spring 2009}
+	\ressubheading{Compiler Construction}{Tulsa, OK}{University of Tulsa}{Fall 2008}
+	\ressubheading{Operating Systems}{Tulsa, OK}{University of Tulsa}{Spring 2008}
+	\ressubheading{Artificial Intelligence}{Tulsa, OK}{University of Tulsa}{Spring 2008}
+	\ressubheading{Numerical Methods for IVP/BVPs}{Tulsa, OK}{University of Tulsa}{Spring 2008}
+	\ressubheading{Computer Animation}{Tulsa, OK}{University of Tulsa}{Spring 2008}
+	\ressubheading{Computer Networks}{Tulsa, OK}{University of Tulsa}{Fall 2007}
 	\ressubheading{Enterprise Security Management}{Tulsa, OK}{University of Tulsa}{Spring 2007}
-	\begin{itemize}
-		\resitem{Studied the managerial aspects of computer security; included development and maintenance of policies and procedures, regulatory compliance, risk management, and disaster planning and recovery}
-		\resitem{Participated in tabletop exercises in risk management and development of specific policies and procedures}
-		\resitem{Significant work with NIST SP 800-63 and ISO-17799 documents}
-	\end{itemize}
-%\item
-%	\ressubheading{Computer Security}{Tulsa, OK}{University of Tulsa}{Spring 2006}
-%	\begin{itemize}
-%		\resitem{Basic introduction to cryptography, various secure protocols, best practices, network security, and legal and ethical issues in computer security}
-%		\resitem{Developed several non-trivial secure software systems, including oblivious transfer; key exchange and management and secure file transfer; and PKI with RSA and X.509 certificates}
-%	\end{itemize}
-\item
+	\ressubheading{Computer Security}{Tulsa, OK}{University of Tulsa}{Spring 2006}
 	\ressubheading{Computer Forensics}{Tulsa, OK}{University of Tulsa}{Spring 2006}
-	\begin{itemize}
-		\resitem{Topics included incident response and recovery, identification and extraction of electronic evidence, and forensic tools}
-%		\resitem{Projects included email tracing, interviewing witnesses, evidence collection, live volatile data collection, network traffic analysis, imaging drives, file restoration, and investigating web attacks}
-	\end{itemize}
-\end{itemize}
 \resheading{Conferences}
 \begin{center}
 	\begin{tabular*}{6.5in}{m{5in}@{\extracolsep{\fill}}r}
