@@ -18,6 +18,11 @@
 
 \documentclass[letterpaper,11pt]{article}
 
+% For PDF metadata:
+\title{George R Louthan - Resume}
+\author{George R Louthan IV}
+
+
 % Margin setup
 
 \setlength{\voffset}{0.1in}
@@ -63,6 +68,15 @@
     \begin{tabular*}{0.9\textwidth}[t]{@{\hspace{#1}}p{5.0in-#1}@{\extracolsep{\fill}}p{0.75in}}
     %\begin{tabular}[t]{p{5.0in}@{\hfill}p{0.75in}}
         #2 & #3
+        \tabularnewline
+    \end{tabular*} %\vspace{-6pt}
+}
+
+% Resume entry (single column)
+\newcommand{\resentrysinglecol}[2][0pt]{
+    \begin{tabular*}{0.9\textwidth}[t]{@{\hspace{#1}}p{0.9\textwidth-#1}}
+    %\begin{tabular}[t]{p{5.0in}@{\hfill}p{0.75in}}
+        #2
         \tabularnewline
     \end{tabular*} %\vspace{-6pt}
 }
@@ -118,6 +132,16 @@
 \newcommand{\resjob}[4]{
     \resentry[10pt]{
 \setlength{\parskip}{1ex plus 0.5ex minus 0.2ex} \textbf{#1} \newline #4}{#2 - \newline #3}
+}
+
+% Conference:
+% Name, Years/roles
+\newcommand{\resconference}[2]{
+    \resentrysinglecol{\textbf{#1} -- #2}
+}
+
+\newcommand{\ressubconference}[2]{
+    \resentrysinglecol[10pt]{\textbf{#1} -- #2}
 }
 
 \begin{document}
@@ -178,12 +202,12 @@ NSA/CSS Center of Excellence in information assurance.}
     \resjob{Graduate Research Assistant}{May 2009}{Present}{
         Part of TU's Institute for Information Security's security engineering
         research initiative. Serving as the student lead for a formal methods
-        research project. Also collaborating with researchers in cyber security
+        research project. Collaborating with researchers in cyber security
         training, information visualization, and critical infrastructure
         protection initiatives. Peer-reviewed publications in cyber security
         education, network intelligence, and secure collaboration.
         
-        Also led the development and deployment of the Institute's IT infrastructure
+        Led the development and deployment of the Institute's IT infrastructure
         and supervising its upkeep (approximately 40 workstations and 5 servers).
     }
     \resjob{Graduate Teaching Assistant}{Jan 2010}{May 2010}{
@@ -237,97 +261,153 @@ authentication product and advertising platform.}
 \resheading{Projects}
 
 \begin{itemize}
-\item
-	\ressubheading{GSM Scale}{Tulsa, OK}{}{June 2010 - Present}
-	\begin{itemize}
-		\resitem{Developing a system for wirelessly collecting, recording, and analyzing patients' weights}
-		\resitem{Working with Alexander Barclay (Laureate Institute for Brain Research), and Kevin Hall (National Institute of Diabetes and Digestive and Kidney Diseases)}
-	\end{itemize}
+\item \resemployer{GSM Scale}{Tulsa, OK}
+{Project for the wireless collection and remote analysis of patients' weights as
+automatically recorded by a cellular-enabled scale. Collaboration with Alexander
+Barclay (Laureate Institute for Brain Research) and Kevin Hall (National
+Institute of Diabetes and Digestive and Kidney Diseases).}
+{
+    \resjob{Personal (Collaborator: NIH)}{Jul 2010}{Present}{
+    Designing and developing the scale client hardware and software, as well as
+    participating in the specification of reporting protocols and web service
+    API.
+    }
+}
+\item \resemployer{Neuroimaging Research Database System}
+{Tulsa, OK}
+{End-to-end management solution for neuroimaging research project including
+subject tracking and medical charting, lab and assessment result management,
+billing, and auditing.}
+{
+    \resjob{IV Consulting (Client: Laureate Institute for Brain Research)}{Sep 2010}{Present}{
+    Managing and supervising development. Specific personal responsibilities
+    include documentation, project management, client interaction, and
+    development of the auditing, report generation, and cost tracking/billing
+    subsystems.
+    }
+}
+\item \resemployer{Laureate Psychiatric Clinic and Hospital Electronic Intake System}
+{Tulsa, OK}
+{Electronic, web-based version of LPCH's legacy pen-and-paper intake system.
+Manages the creation of new patients, basic demographic information, personal
+inventory, and other data collection. Generates daily new patient reports for
+medical charts.}
+{
+    \resjob{IV Consulting (Client: LPCH)}{Sep 2010}{Nov 2010}{
+    Supervised development of the entire system; responsible for development of
+    report generation and clinical staff views for patient tracking. Managed
+    documentation and client interactions.
+    }
+}
 
-\item
-	\ressubheading{Cyber-physical Systems}{Tulsa, OK}{Institute for Information Security, TU}{Jan 2010 - Present}
-	\begin{itemize}
-		\resitem{Leading a formal methods research group for networked hybrid systems (i.e. systems with discrete and continuous components)}
-		\resitem{Building a formal framework for modeling and analyzing networked process control systems}
-	\end{itemize}
-
-%\item
-%	\ressubheading{Deployment Plan}{Tulsa, OK}{University of Tulsa}{Jan 2010 - May 2010}
-%	\begin{itemize}
-%		\resitem{Writing a comprehensive deployment plan for a generic enterprise computing system.}
-%		\resitem{Included hardware and software deployment procedures and checklists, maintenance, as well as business IT policies (e.g. backup/restore, acceptable use, remote access, password, etc.)}
-%	\end{itemize}
-
-%\item
-%	\ressubheading{Intrusion Detection System}{Tulsa, OK}{University of Tulsa}{Spring 2010}
-%	\begin{itemize}
-%		\resitem{Developing a Snort rule compatible network intrusion detection system in Java}
-%		\resitem{Includes packet sniffing and parsing as well as generation, running directly on libpcap}
-%	\end{itemize}
-
-\item
-	\ressubheading{SAND/DVNE}{Tulsa, OK}{Enterprise Security Group, TU}{May 2007 - Present}
-	\begin{itemize}
-		\resitem{Led a network monitoring research group}
-		\resitem{Led the project's deployment at FAA Computer Security Incident Response Center}
-		\resitem{Developing large-screen multi-touch network visualization system}
-		\resitem{Presented with Cody Pollet at DEFCON 17 and as a poster at USENIX Security 2009}
-	\end{itemize}
-%\item
-%	\ressubheading{Disastro}{Tulsa, OK}{University of Tulsa}{Jan 2009 - May 2009}
-%	\begin{itemize}
-%		\resitem{Functioned as technical lead and developer for a citizen-facing relief management system for disaster response}
-%		\resitem{Integrated systems for voice phone (IVR), and web services for aggregation and dissemination of urgent relief information in disaster situations}
-%	\end{itemize}
-%\item
-%	\ressubheading{Lunchman}{Tulsa, OK}{University of Tulsa}{Aug 2006 - May 2007}
-%	\begin{itemize}
-%		\resitem{Technical team member for a prototype web application for restaurant search and selection}
-%		\resitem{Received runner-up award in the Donald W. Reynolds Governor's Cup business plan competition for 2007}
-%	\end{itemize}
-%\item
-%	\ressubheading{NOVA}{Tulsa, OK}{Enterprise Security Group, TU}{Jan 2006 - May 2006}
-%	\begin{itemize}
-%		\resitem{Participated in development of a major network analysis project written in Java}
-%		\resitem{Assisted deployment at FAA Computer Security Incident Responce Center}
-%	\end{itemize}
+\item \resemployer{SAND/DVNE}{Tulsa, OK}
+{Network monitoring and visualization tool for the passive identification of
+network protocols using signatures.}
+{
+    \resjob{Enterprise Security Group, University of Tulsa}{May 2007}{Present}{
+    Led a network monitoring research group; contributed to the original design
+    and executed subsequent reimplementation of the protocol identification 
+    library (SAND).
+    Oversaw the project's successful test deployment at FAA Computer Security
+    Incident Response Center. Co-developed a large-screen multi-touch
+    network traffic visualization tool (DVNE). Contributing to future work by
+    actively maintaining the library.
+    }
+}
+\item \resemployer{Disastro}{Tulsa, OK}
+{Citizen-facing relief management system for disaster response; includes
+web service and IVR (phone) data collection and reporting capabilities. Senior semester
+capstone project from Senior Software course.}
+{
+    \resjob{Senior Software, University of Tulsa}{Jan 2009}{May 2009}{
+    Served as project lead and IVR developer. Responsibilities focused upon
+    design, architecture, specification, documentation, developer coordination,
+    and project management.
+    }
+}
 \end{itemize}
 
 \resheading{Academics}
-    \resschool{Instructor}{}{}
-	\ressubheading{Network Security}{Tulsa, OK}{University of Tulsa}{Spring 2010}
-	\ressubheading{Secure System Administration}{Tulsa, OK}{University of Tulsa}{Spring 2010}
-	\ressubheading{Risk Management for Information Systems}{Tulsa, OK}{University of Tulsa}{Spring 2010}
-	\ressubheading{Computational Neuroscience}{Tulsa, OK}{University of Tulsa}{Fall 2009}
-	\ressubheading{Information Systems Assurance}{Tulsa, OK}{University of Tulsa}{Fall 2009}
-	\ressubheading{Machine Learning}{Tulsa, OK}{University of Tulsa}{Fall 2009}
-	\ressubheading{Senior Software Projects}{Tulsa, OK}{University of Tulsa}{Fall 2008 - Spring 2009}
-	\ressubheading{Compiler Construction}{Tulsa, OK}{University of Tulsa}{Fall 2008}
-	\ressubheading{Operating Systems}{Tulsa, OK}{University of Tulsa}{Spring 2008}
-	\ressubheading{Artificial Intelligence}{Tulsa, OK}{University of Tulsa}{Spring 2008}
-	\ressubheading{Numerical Methods for IVP/BVPs}{Tulsa, OK}{University of Tulsa}{Spring 2008}
-	\ressubheading{Computer Animation}{Tulsa, OK}{University of Tulsa}{Spring 2008}
-	\ressubheading{Computer Networks}{Tulsa, OK}{University of Tulsa}{Fall 2007}
-	\ressubheading{Enterprise Security Management}{Tulsa, OK}{University of Tulsa}{Spring 2007}
-	\ressubheading{Computer Security}{Tulsa, OK}{University of Tulsa}{Spring 2006}
-	\ressubheading{Computer Forensics}{Tulsa, OK}{University of Tulsa}{Spring 2006}
+    \begin{description}
+        \item[Instructor] Information Security: Assurance and Risk Assessment
+        (short course -- taught applied portions), Fundamentals of Algorithms
+        and Computer Applications Lab
+        \item[Teaching Assistant] Fundamentals of Algorithms and Computer
+        Applications Lecture
+        \item[Information Assurance Coursework] Network Security, Secure
+        System Administration, Risk Management for Information Systems,
+        Information Systems Assurance, Enterprise Security Management,
+        Computer Security, Computer Forensics, Applied Cyber Defense
+        (independent study)
+        \item[Computer Science Coursework] Mobile Device Application Development,
+        Computational Neuroscience, Machine
+        Learning, Senior Software Projects, Compiler Construction, Operating
+        Systems, Artificial Intelligence, Computer Animation, Computer Networks,
+        Computer Network Analysis (independent study)
+        \item[Mathematics Coursework] Numerical Methods, Numerical Methods for
+        IVP/BVP PDEs, Modern Algebra, Real Analysis, Linear Algebra, Mathematics
+        Seminar (a survey of unusual problems)
+        \item[Sample Class Projects] Snort rule compatible IDS,
+        Comprehensive IT system deployment plan,
+        Top-down corporate risk assessment, Formal model for contingency planning,
+        Reinforcement learner for Infinite Mario game, Front-end of a Pascal
+        compiler, Simple web server
+    \end{description}
+
 \resheading{Conferences}
-\begin{center}
-	\begin{tabular*}{6.5in}{m{5in}@{\extracolsep{\fill}}r}
-		International Conference for High Performance Computing, Networking, Storage and Analysis 2008 (SC08) & Participant \\
-		IT Security World Conference and Expo 2008 & Exhibitor \\
-		12th TU Student Research Colloquium and 84th AAAS-SWARM Regional Meeting & Speaker, Session Chair \\
-		DEFCON 16 & Participant (Human) \\
-		Computer Security and Information Intelligence Research Workshop (CSIIRW) 2009 & Speaker \\
-		The 2009 International Conference on Internet Computing (ICOMP `09) at WORLDCOMP `09 & Speaker \\
-		DEFCON 17 & Speaker \\
-		18th USENIX Security Symposium & Poster Presenter \\
-		13th TU Student Research Colloquium & General Co-chair, Speaker \\
-		Blackhat USA 2010 & Participant \\
-		DEFCON 18 & Participant (Human) \\
-		19th USENIX Security Symposium & Workshop Speaker \\
-	\end{tabular*}
-\end{center}
+\begin{itemize}
+    \item \resconference{USENIX Security Symposium}{Participant (2009 - 2010)}
+        \ressubconference{Workshop: Cyber Security Experimentation and Test}
+        {Speaker (2010)}
+        \ressubconference{Event: Poster Session}{Presenter (2009)}
+    \item \resconference{Blackhat USA}{Participant (2010)}
+    \item \resconference{DEFCON}
+        {Human (2008, 2010), Speaker (2009)}
+    \item \resconference{University of Tulsa Student Research Colloquium}
+        {General Co-Chair (2010), Speaker and Session Chair (2009)}
+        \ressubconference{Special Topic Symposium: Cyber Security and Critical Infrastructure}
+        {Speaker and Symposium Chair (2010)}
+    \item \resconference{International Conference on Internet Computing (ICOMP) at WORLDCOMP}
+        {Speaker (2009)}
+    \item \resconference{Computer Security and Information Intelligence Research
+        Workshop (CSIIRW)}{Speaker (2009)}
+    \item \resconference{International Conference for High Performance
+        Computing, Networking, Storage and Analysis (SC)}{Participant (2008)}
+    \item \resconference{IT Security World}{Exhibitor (2008)}
+
+\end{itemize}
+
+\footnotetext[1]{Denotes a peer-reviewed publication}
+\resheading{Publications and Presentations}
+\begin{itemize}
+\item ``The Blunderdome: An Offensive Exercise for Building Network, Systems, and
+    Web Security Awareness''\footnotemark[1]. Paper at CSET 2010 at 19th USENIX Security
+    Symposium, September 2010. G Louthan, W Roberts, M Butler, and J Hale. 
+\item ``Toward Sensitive Information Redaction in a Collaborative,
+    Multilevel Security Environment''\footnotemark[1]. Paper at WikiSym 2010,
+    July 2010. P Gehres, N Singleton, G Louthan, and J Hale.
+\item ``Towards Formal Analysis of Cyber-Physical Systems''. Presentation at
+    the Cyber Security and
+    Critical Infrastructure Symposium at the 2010 TU Student Research Colloquium,
+    March 2010. G Louthan, N Singleton, M Papa, and J Hale.
+\item ``Large-scale Multitouch Interactive Network Visualization''. Poster at
+    the 18th USENIX Security Symposium, August 2009. C Pollet, G Louthan and J Hale.
+\item ``SAND: An Architecture for Signature-based Automatic Network Protocol
+    Detection''. Poster at the 18th USENIX Security Symposium, August 2009.
+    G Louthan and J Hale.
+\item ``Hack Like the Movie Stars: A Big-Screen Multitouch Network Monitor''.
+    Presentation at DEFCON 17, August 2009. G Louthan, C Pollet, and J Hale.
+\item ``Toward Robust and Extensible Network Protocol
+    Identification''\footnotemark[1]. Paper at ICOMP '09, July 2009. G Louthan, C McMillan,
+    C Johnson, and J Hale.
+\item ``Content-based Alternatives to Conventional Network
+    Monitoring''\footnotemark[1]. Paper at CSIIRW '09, April 2009. G Louthan,
+    B Deetz, M Walker, and J Hale.
+\item ``Communication without Boundaries: Breaching the Great Firewall of
+    China'' Presentation at the 2009 TU Student Research Symposium and 84th
+    Regional Meeting of AAAS-SWARM, March 2009. G Louthan and J Hale. (Honorable
+    Mention for Best Presentation)
+\end{itemize}
 
 \resheading{Awards and Honors}
 \begin{center}
@@ -335,51 +415,33 @@ authentication product and advertising platform.}
 		General Co-Chair, TU Student Research Colloquium & 2010 \\
 		Chair, Computer Security Special Topic Symposium, TU Student Research Colloquium & 2010 \\
 		Honorable Mention, Best Presentation, AAAS-SWARM 2009 & 2009 \\
-%		Tulsa Undergraduate Research Challenge Participant & 2006-08\\
 		Runner-Up, Donald W. Reynolds Governor's Cup Business Plan Competition & 2007\\
-%		National Merit Scholar & 2005-2009\\
-%		Oklahoma St. Regents for Higher Education Academic Scholar & 2005-2009\\
-%		University of Tulsa Presidential Scholar & 2005-2009\\
-%		Robert C. Byrd Academic Scholar & 2005-2009\\
 	\end{tabular*}
 \end{center}
 
-\resheading{Publications and Presentations}
-\begin{itemize}
-\item
-	\ressubheading{\emph{The Blunderdome: An Offensive Exercise for Building Network, Systems, and Web Security Awareness}\footnotemark[1]}{CSET 2010 at 19th USENIX Security Symposium}{P Gehres, N Singleton, G Louthan, and J Hale}{July 2010}
-\item
-	\ressubheading{\emph{Toward Sensitive Information Redaction in a Collaborative, Multilevel Security Environment}\footnotemark[1]}{WikiSym 2010}{P Gehres, N Singleton, G Louthan, and J Hale}{July 2010}
-\item
-	\ressubheading{\emph{Towards Formal Analysis of Cyber-Physical Systems}}{TU Colloquium}{G Louthan, N Singleton, M Papa, and J Hale}{March 2010}
-\item
-	\ressubheading{\emph{Large-scale Multitouch Interactive Network Visualization} (Poster)}{USENIX Security 18}{C Pollet, G Louthan and J Hale}{August 2009}
-\item
-	\ressubheading{\emph{SAND: An Architecture for Signature-based Automatic Network Protocol Detection} (Poster)}{USENIX Security 18}{G Louthan and J Hale}{August 2009}
-\item
-	\ressubheading{\emph{Hack Like the Movie Stars: A Big-Screen Multitouch Network Monitor}}{DEFCON 17}{G Louthan, C Pollet, and J Hale}{August 2009}
-\item
-	\ressubheading{\emph{Content-based Alternatives to Conventional Network Monitoring}\footnotemark[1]}{CSIIRW '09}{G Louthan, B Deetz, M Walker, and J Hale}{April 2009}
-\item
-	\ressubheading{\emph{Toward Robust and Extensible Network Protocol Identification}\footnotemark[1]}{ICOMP '09}{G Louthan, C McMillan, C Johnson, and J Hale}{July 2009}
-\item
-	\ressubheading{\emph{Communication without Boundaries: Breaching the Great Firewall of China}}{AAAS-SWARM '09}{G Louthan and J Hale}{March 2009}
-\end{itemize}
-
-\footnotetext[1]{Denotes a peer-reviewed publication}
-
 \resheading{Skill set}
 \begin{description}
-\item[Programming Languages]
-Java; Python; Clojure; Common Lisp; Basic; some Ruby, Perl and PHP
-\item[Technologies]
-TCP/IP; Computer networking; Shorewall/IPTables and general firewalling; Mathematica; \LaTeX; Network monitoring; Virtualization; some .NET
-\item[Processes]
-Risk management for information systems (NIST SP 800-30), including some familiarity with IT aspects of Sarbanes-Oxley risk assessment (PCAOB Auditing Standard 5); Information Security Management (ISO/IEC 17799:2005); Information Assurance Controls and Accreditation (NIST SP 800-53 and DoDI 8510.01); Incident response and computer forensics; General policy development; General familiarity with NIST 800 series
+\item[Languages]
+Python; Java; Lisp (Clojure and Common Lisp); \LaTeX; Mathematica; some Ruby, Perl, PHP, and Objective C
 \item[Platforms]
-Linux (especially Debian/Ubuntu); Windows 2000/XP/Vista/7 (Personal and Server versions); VMWare ESXi; OpenWrt/FreeWrt; Mac OS X
+Linux (especially Debian/Ubuntu, also OpenWRT/FreeWRT);
+Windows (modern workstation and server versions);
+VMWare ESXi (3 and 4); Mac OS X
+\item[Technologies]
+Computer networking (TCP/IP); Virtualization; Firewalls (iptables and Shorewall,
+some pf and Cisco); Django; Network monitoring and IDS; Android OS; iOS; Application
+security; Forensics; PKI.
+\item[Processes]
+Risk management for information systems (NIST SP 800-30),
+including some familiarity with IT aspects of Sarbanes-Oxley risk assessment
+(PCAOB Auditing Standard 5); Information Security Management (ISO/IEC 17799:2005);
+Information Assurance Controls and Accreditation (NIST SP 800-53 and DoDI 8510.01);
+Incident response and computer forensics; General policy development;
+General familiarity with NIST 800 series
 \item[Mathematics]
-Numerical analysis; Finite difference methods; Finite element analysis; Real analysis; Discrete mathematics; Modern algebra; Finite state automata; Hybrid automata; Process calculi; Analysis of algorithms
+Numerical analysis; Finite difference methods; Finite element analysis;
+Real analysis; Discrete mathematics; Modern algebra; Finite state automata;
+Hybrid automata; Process calculi; Analysis of algorithms
 \end{description}
 
 %\resheading{Interests}
