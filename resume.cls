@@ -124,13 +124,13 @@
 % Conference:
 % Name, Years/roles
 \newcommand{\resconference}[2]{
-    \resentrysinglecol{\textbf{#1} #2}
+    \resentrysinglecol{\raggedright \textbf{#1} #2}
 }
 
 % Subconference (use under a conference for workshops, etc.):
 % Name, Years/roles
 \newcommand{\ressubconference}[2]{
-    \resentrysinglecol[10pt]{\textbf{#1} -- #2}
+    \resentrysinglecol[10pt]{\textbf{#1} #2}
 }
 
 % Single column item/description pair:
