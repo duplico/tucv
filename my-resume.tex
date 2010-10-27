@@ -16,8 +16,23 @@
 % 5th Floor
 % San Francisco, CA 94105
 
-\documentclass{resume}
+% Education
+% Certifications
+% Academics
+% Skill Set
+% Keep rest
 
+\documentclass{resume}
+\usepackage[american]{babel}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[C]{Louthan \thepage}
+
+\hyphenpenalty=5000
+\tolerance=1000
 % For PDF metadata:
 \title{George R Louthan - Resume}
 \author{George R Louthan IV}
@@ -27,7 +42,7 @@
 % Heading and name/contact info table
 \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
 \textbf{\Large George R. Louthan IV}  & 918.289.2458\\
-20 E Archer \#604 &  georgerlouth@nthefourth.com \\
+20 E. Archer \#604 &  georgerlouth@nthefourth.com \\
 Tulsa, OK 74103 & http://georgerloutha.nthefourth.com \\
 \end{tabular*}
 
@@ -50,9 +65,8 @@ Tulsa, OK 74103 & http://georgerloutha.nthefourth.com \\
 \resheading{Certifications}
 \begin{itemize}
 \item[]
-    \resschoolextra{Committee on National Security Systems 4011-4016}
-        {Tulsa, OK}{National Information Assurance Training Standards.
-        Issued by the University of Tulsa.}
+    \resschoolextra{Committee on National Security Systems 4011--4016}
+        {Tulsa, OK}{National Information Assurance Training Standards}
         \ressubentry{4011 Information Systems Security Professional}{May 2006}
         \ressubentry{4012 Senior Systems Manager}{Dec 2007}
         \ressubentry{4013 System Administrator}{May 2010}
@@ -116,8 +130,7 @@ authentication product and advertising platform.}
     Developed, recorded, and narrated a series of educational videos for
     Vidoop's products as well as OpenID. Primary author on the corporate blog.
     Worked closely both with developers and business personnel. Staffed the
-    company's exhibit at the IT Security World trade show.
-    }
+    company's exhibit at the IT Security World trade show.}
 \end{itemize}
 
 
@@ -192,7 +205,7 @@ capstone project from Senior Software course.}
 \resheading{Academics}
     \begin{itemize}
     \item[] \resdesc{Instructor}{Information Security: Assurance and Risk Assessment
-        (short course -- taught applied portions), Fundamentals of Algorithms
+        (short course---taught applied portions), Fundamentals of Algorithms
         and Computer Applications Lab}
     \item[] \resdesc{Teaching Assistant}{Fundamentals of Algorithms and Computer
         Applications Lecture}
@@ -237,30 +250,30 @@ capstone project from Senior Software course.}
 \footnotetext[1]{Denotes a peer-reviewed publication}
 \resheading{Publications and Presentations}
 \begin{itemize}
-\item[] \resdesc{``The Blunderdome: An Offensive Exercise for Building Network, Systems, and
+\item[] \resbib{``The Blunderdome: An Offensive Exercise for Building Network, Systems, and
     Web Security Awareness''\footnotemark[1]}{Paper at CSET 2010 at 19th USENIX Security
     Symposium, September 2010. G Louthan, W Roberts, M Butler, and J Hale.}
-\item[] \resdesc{``Toward Sensitive Information Redaction in a Collaborative,
+\item[] \resbib{``Toward Sensitive Information Redaction in a Collaborative,
     Multilevel Security Environment''\footnotemark[1]}{Paper at WikiSym 2010,
     July 2010. P Gehres, N Singleton, G Louthan, and J Hale.}
-\item[] \resdesc{``Towards Formal Analysis of Cyber-Physical Systems''}
+\item[] \resbib{``Towards Formal Analysis of Cyber-Physical Systems''}
     {Presentation at the Cyber Security and
     Critical Infrastructure Symposium at the 2010 TU Student Research Colloquium,
     March 2010. G Louthan, N Singleton, M Papa, and J Hale.}
-\item[] \resdesc{``Large-scale Multitouch Interactive Network Visualization''}{Poster at
+\item[] \resbib{``Large-scale Multitouch Interactive Network Visualization''}{Poster at
     the 18th USENIX Security Symposium, August 2009. C Pollet, G Louthan and J Hale.}
-\item[] \resdesc{``SAND: An Architecture for Signature-based Automatic Network Protocol
+\item[] \resbib{``SAND: An Architecture for Signature-based Automatic Network Protocol
     Detection''}{Poster at the 18th USENIX Security Symposium, August 2009.
     G Louthan and J Hale.}
-\item[] \resdesc{``Hack Like the Movie Stars: A Big-Screen Multitouch Network Monitor''}
+\item[] \resbib{``Hack Like the Movie Stars: A Big-Screen Multitouch Network Monitor''}
     {Presentation at DEFCON 17, August 2009. G Louthan, C Pollet, and J Hale.}
-\item[] \resdesc{``Toward Robust and Extensible Network Protocol
+\item[] \resbib{``Toward Robust and Extensible Network Protocol
     Identification''\footnotemark[1]}{Paper at ICOMP '09, July 2009. G Louthan, C McMillan,
     C Johnson, and J Hale.}
-\item[] \resdesc{``Content-based Alternatives to Conventional Network
+\item[] \resbib{``Content-based Alternatives to Conventional Network
     Monitoring''\footnotemark[1]}{Paper at CSIIRW '09, April 2009. G Louthan,
     B Deetz, M Walker, and J Hale.}
-\item[] \resdesc{``Communication without Boundaries: Breaching the Great Firewall of
+\item[] \resbib{``Communication without Boundaries: Breaching the Great Firewall of
     China''}{Presentation at the 2009 TU Student Research Symposium and 84th
     Regional Meeting of AAAS-SWARM, March 2009. G Louthan and J Hale. (Honorable
     Mention for Best Presentation)}
@@ -269,15 +282,16 @@ capstone project from Senior Software course.}
 \resheading{Awards and Honors}
 \begin{itemize}
     \item[] \resentry{General Co-Chair, TU Student Research Colloquium}{2010}
-    \item[] \resentry{Chair, TU Student Research Colloquium Computer Security
+    \item[] \resentry{Chair, TU Student Research Colloquium Computer Security 
+                    \newline
                     Special Topic Symposium}{2010}
     \item[] \resentry{Honorable Mention, Best Presentation at AAAS-SWARM}{2009}
-    \item[] \resentry{Runner-Up, Donald W. Reynolds Governor's Cup Business
+    \item[] \resentry{Runner-Up, Donald W. Reynolds Governor's Cup \newline Business
                     Plan Competition}{2007}
-    \item[] \resentry{University of Tulsa Presidential Scholar}{2005-09}
+    \item[] \resentry{University of Tulsa Presidential Scholar}{2005--09}
 \end{itemize}
 
-\resheading{Skill set}
+\resheading{Skill Set}
 \begin{itemize}
 \item[] \resdesc{Languages}{Python; Java; Lisp (Clojure and Common Lisp);
     \LaTeX; Mathematica; some Ruby, Perl, PHP, and Objective C}
