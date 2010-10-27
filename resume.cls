@@ -33,7 +33,7 @@
 \newcommand{\resheading}[1]{{\large \colorbox{mygrey}{\begin{minipage}
     {\textwidth}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
 
-% Resume entry (used for subheading)
+% Raw two-column resume entry
 \newcommand{\resentry}[3][0pt]{
     \begin{tabular*}{0.9\textwidth}[t]{@{\hspace{#1}}p{5.0in-#1}@{\extracolsep{\fill}}p{0.75in}}
         #2 & #3
@@ -41,47 +41,64 @@
     \end{tabular*}
 }
 
-% Resume entry (single column)
+% Raw indented two-column resume entry
+\newcommand{\ressubentry}[2]{
+    \resentry[10pt]{
+        \setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+        #1}{#2}
+}
+
+% Raw single-column resume entry
 \newcommand{\resentrysinglecol}[2][0pt]{
     \begin{tabular*}{0.9\textwidth}[t]{@{\hspace{#1}}p{0.9\textwidth-#1}}
-    %\begin{tabular}[t]{p{5.0in}@{\hfill}p{0.75in}}
         #2
         \tabularnewline
     \end{tabular*}
 }
 
-% Resume subheading
+% Raw indented one-column resume entry
+\newcommand{\ressubentrysinglecol}[1]{
+    \resentrysinglecol[10pt]{
+        \setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+        #1}
+}
+
+% Resume subheading:
 \newcommand{\ressubheading}[4]{
     \resentry{\textbf{#1} \newline #3}{#2 \newline #4}    
 }
 
-% Resume subheading with extra information
+% Resume subheading with extra information (trailing in left column)
 \newcommand{\ressubheadingextra}[5]{
     \resentry{\textbf{#1} \newline #3 \newline #5}{#2 \newline #4}
 }
 
 % Specific entry types:
 
-% School:
-% School, Location, Description, Degrees
-\newcommand{\resschool}[3]{
+% Education:
+
+% School entry:
+% School, Location
+\newcommand{\resschool}[2]{
+    \resentry{\textbf{#1}}{#2}
+}
+
+% School entry with extra description:
+% School, Location, Description
+\newcommand{\resschoolextra}[3]{
     \resentry{\textbf{#1} \newline #3}{#2}
 }
 
-\newcommand{\resschoolextra}[4]{
-    \resentry{\textbf{#1} \newline #3 \newline #4}{#2}
-}
-
-% Degree:
-% Degree, Major, Date, Description
+% Degree entry:
+% Degree, Major, Date
 \newcommand{\resdegree}[3]{
-    \resentry[10pt]{
-\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex} #1 #2}{#3}
+    \ressubentry{#1 in #2}{#3}
 }
 
+% Degree entry with extra description:
+% Degree, Major, Date, Description
 \newcommand{\resdegreeextra}[4]{
-    \resentry[10pt]{
-\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex} #1 #2 \newline \textit{#4}}{#3}
+    \ressubentry{#1 in #2 \newline \textit{#4}}{#3}
 }
 
 % Combined school and degree (plus other) entry:
@@ -91,12 +108,13 @@
 }
 
 % Work experience:
-% Employer, Location, Description, Jobs
-\newcommand{\resemployer}[4]{
-    \resentry{\textbf{#1} \newline #3 \newline #4}{#2}
+% Employer entry:
+% Employer, Location, Description
+\newcommand{\resemployer}[3]{
+    \resentry{\textbf{#1} \newline #3}{#2}
 }
 
-% Work experience:
+% Job entry (part of an employer block):
 % Title, Start Date, End Date, Description
 \newcommand{\resjob}[4]{
     \resentry[10pt]{
@@ -106,9 +124,16 @@
 % Conference:
 % Name, Years/roles
 \newcommand{\resconference}[2]{
-    \resentrysinglecol{\textbf{#1} -- #2}
+    \resentrysinglecol{\textbf{#1} #2}
 }
 
+% Subconference (use under a conference for workshops, etc.):
+% Name, Years/roles
 \newcommand{\ressubconference}[2]{
     \resentrysinglecol[10pt]{\textbf{#1} -- #2}
+}
+
+% Single column item/description pair:
+\newcommand{\resdesc}[2]{
+    \resentrysinglecol{\textbf{#1} #2}
 }
