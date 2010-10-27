@@ -31,12 +31,12 @@
 
 % Resume heading. Heading inside a shaded box.
 \newcommand{\resheading}[1]{{\large \colorbox{mygrey}{\begin{minipage}
-    {\textwidth}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
+    {\textwidth-6.0pt}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
 
 % Raw two-column resume entry
 \newcommand{\resentry}[3][0pt]{
     \begin{tabular*}{0.9\textwidth}[t]{@{\hspace{#1}}p{5.0in-#1}@{\extracolsep{\fill}}p{0.75in}}
-        #2 & #3
+        \raggedright #2 & #3
         \tabularnewline
     \end{tabular*}
 }
@@ -118,7 +118,7 @@
 % Title, Start Date, End Date, Description
 \newcommand{\resjob}[4]{
     \resentry[10pt]{
-\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex} \textbf{#1} \newline #4}{#2 - \newline #3}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex} \textbf{#1} \newline #4}{#2 -- \newline #3}
 }
 
 % Conference:
@@ -135,5 +135,10 @@
 
 % Single column item/description pair:
 \newcommand{\resdesc}[2]{
-    \resentrysinglecol{\textbf{#1} #2}
+    \resentrysinglecol{\raggedright \textbf{#1} #2}
+}
+
+% Single column bib pair:
+\newcommand{\resbib}[2]{
+    \resentrysinglecol{\raggedright \textbf{#1} #2}
 }
