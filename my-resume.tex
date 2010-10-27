@@ -23,7 +23,6 @@
 % Keep rest
 
 \documentclass{resume}
-\usepackage[american]{babel}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
@@ -33,6 +32,9 @@
 
 \hyphenpenalty=5000
 \tolerance=1000
+
+%\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+
 % For PDF metadata:
 \title{George R Louthan - Resume}
 \author{George R Louthan IV}
@@ -75,7 +77,62 @@ Tulsa, OK 74103 & http://georgerloutha.nthefourth.com \\
         \ressubentry{4016 Risk Analyst}{May 2010}
 \end{itemize}
 
-% End certs
+\resheading{Academics}
+    \begin{itemize}
+    \item[] \resdesc{Instructor}{Information Security: Assurance and Risk Assessment
+        (short course---taught applied portions), Fundamentals of Algorithms
+        and Computer Applications Lab}
+    \item[] \resdesc{Teaching Assistant}{Fundamentals of Algorithms and Computer
+        Applications Lecture}
+    \item[] \resdesc{Referee}{Journal of Supercomputing (Jan 2010)}
+    \item[] \resdesc{Information Assurance Coursework}{Network Security, Secure
+        System Administration, Risk Management for Information Systems,
+        Information Systems Assurance, Enterprise Security Management,
+        Computer Security, Computer Forensics, Applied Cyber Defense
+        (independent study)}
+    \item[] \resdesc{Computer Science Coursework}{Mobile Device Application Development,
+        Computational Neuroscience, Machine
+        Learning, Senior Software Projects, Compiler Construction, Operating
+        Systems, Artificial Intelligence, Computer Animation, Computer Networks,
+        Computer Network Analysis (independent study)}
+    \item[] \resdesc{Mathematics Coursework}{Numerical Methods, Numerical Methods for
+        IVP/BVP PDEs, Modern Algebra, Real Analysis, Linear Algebra, Mathematics
+        Seminar (a survey of unusual problems)}
+\end{itemize}
+\newpage
+\resheading{Skill Set}
+\begin{itemize}
+\item[] \resdesc{Languages}{Python; Java; Lisp (Clojure and Common Lisp);
+    \LaTeX; Mathematica; some Ruby, Perl, PHP, and Objective C}
+\item[] \resdesc{Platforms}{Linux (especially Debian/Ubuntu, also 
+	OpenWRT/FreeWRT);
+	Windows (modern workstation and server versions);
+	VMWare ESXi (3 and 4); Mac OS X}
+\item[] \resdesc{Technologies}{Computer networking (TCP/IP); Virtualization;
+	Firewalls (iptables and Shorewall,
+	some pf and Cisco); Django; Version control (Subversion and Mercurial);
+	Network monitoring and IDS; Android OS; iOS; Application
+	security; Forensics; PKI}
+\item[] \resdesc{Processes}{Risk management for information systems (NIST SP 
+	800-30),
+	including some familiarity with IT aspects of Sarbanes-Oxley risk assessment
+	(PCAOB Auditing Standard 5); Information Security Management 
+	(ISO/IEC 17799:2005);
+	Information Assurance Controls and Accreditation 
+	(NIST SP 800-53 and DoDI 8510.01);
+	Incident response and computer forensics; General policy development;
+	General familiarity with NIST 800 series}
+\item[] \resdesc{Mathematics}{Numerical analysis; Finite difference methods;
+	Finite element analysis;
+	Real analysis; Discrete mathematics; Modern algebra; Finite state automata;
+	Hybrid automata; Process calculi; Analysis of algorithms}
+\item[] \resdesc{Soft skills}{Flexible and even-tempered; Very strong written 
+	and verbal communication skills;
+	Skilled at explaining technical concepts to laypeople;
+	Comfortable in social settings; Experienced and extremely comfortable giving
+	lectures and presentations}
+\end{itemize}
+
 \resheading{Employment History}
 \begin{itemize}
 \item[]
@@ -127,10 +184,10 @@ authentication product and advertising platform.}
     \resjob{Technical Writing Intern}{May 2007}{Mar 2009}{
     Served as a copy writer and editor for technical documentation,
     specifications, white papers, user documentation, and marketing materials.
-    Developed, recorded, and narrated a series of educational videos for
-    Vidoop's products as well as OpenID. Primary author on the corporate blog.
-    Worked closely both with developers and business personnel. Staffed the
-    company's exhibit at the IT Security World trade show.}
+    Developed and narrated a series of educational videos for
+    Vidoop's products and OpenID. Primary author on the corporate blog.
+    Worked closely with developers and business personnel. Staffed exhibit at 
+	IT Security World.}
 \end{itemize}
 
 
@@ -160,10 +217,8 @@ billing, and auditing.}
     }
 \item[] \resemployer{Laureate Psychiatric Clinic and Hospital Electronic Intake System}
 {Tulsa, OK}
-{Electronic, web-based version of LPCH's legacy pen-and-paper intake system.
-Manages the creation of new patients, basic demographic information, personal
-inventory, and other data collection. Generates daily new patient reports for
-medical charts.}
+{Web-based version of LPCH's legacy pen-and-paper intake system.
+Manages the creation of new patients and basic data collection. Generates patient reports for medical charts.}
     \resjob{IV Consulting (Client: LPCH)}{Sep 2010}{Nov 2010}{
     Supervised development of the entire system; responsible for development of
     report generation and clinical staff views for patient tracking. Managed
@@ -174,13 +229,11 @@ medical charts.}
 {Network monitoring and visualization tool for the passive identification of
 network protocols using signatures.}
     \resjob{Enterprise Security Group, University of Tulsa}{May 2007}{Present}{
-    Led a network monitoring research group; contributed to the original design
-    and executed subsequent reimplementation of the protocol identification 
-    library (SAND).
-    Oversaw the project's successful test deployment at FAA Computer Security
-    Incident Response Center. Co-developed a large-screen multi-touch
-    network traffic visualization tool (DVNE). Contributing to future work by
-    actively maintaining the library.
+    Led a network monitoring research group; designed and implemented a
+    protocol identification library (SAND).
+    Oversaw successful test deployment at FAA Computer Security
+    Incident Response Center. Co-developed a multi-touch
+    network traffic visualization tool (DVNE). Actively maintaining the library.
     }
 \item[] \resemployer{Disastro}{Tulsa, OK}
 {Citizen-facing relief management system for disaster response; includes
@@ -202,28 +255,6 @@ capstone project from Senior Software course.}
 
 \end{itemize}
 
-\resheading{Academics}
-    \begin{itemize}
-    \item[] \resdesc{Instructor}{Information Security: Assurance and Risk Assessment
-        (short course---taught applied portions), Fundamentals of Algorithms
-        and Computer Applications Lab}
-    \item[] \resdesc{Teaching Assistant}{Fundamentals of Algorithms and Computer
-        Applications Lecture}
-    \item[] \resdesc{Information Assurance Coursework}{Network Security, Secure
-        System Administration, Risk Management for Information Systems,
-        Information Systems Assurance, Enterprise Security Management,
-        Computer Security, Computer Forensics, Applied Cyber Defense
-        (independent study)}
-    \item[] \resdesc{Computer Science Coursework}{Mobile Device Application Development,
-        Computational Neuroscience, Machine
-        Learning, Senior Software Projects, Compiler Construction, Operating
-        Systems, Artificial Intelligence, Computer Animation, Computer Networks,
-        Computer Network Analysis (independent study)}
-    \item[] \resdesc{Mathematics Coursework}{Numerical Methods, Numerical Methods for
-        IVP/BVP PDEs, Modern Algebra, Real Analysis, Linear Algebra, Mathematics
-        Seminar (a survey of unusual problems)}
-    \end{itemize}
-
 \resheading{Conferences}
 \begin{itemize}
     \item[] \resconference{USENIX Security Symposium}{Participant (2009 - 2010)}
@@ -235,7 +266,7 @@ capstone project from Senior Software course.}
         {Human (2008, 2010), Speaker (2009)}
     \item[] \resconference{University of Tulsa Student Research Colloquium}
         {General Co-Chair (2010), Speaker and Session Chair (2009)}
-        \ressubconference{Special Topic Symposium: Cyber Security and Critical Infrastructure}
+        \ressubconference{Cyber Security and Critical Infrastructure Symposium}
         {Speaker and Symposium Chair (2010)}
     \item[] \resconference{International Conference on Internet Computing (ICOMP) at WORLDCOMP}
         {Speaker (2009)}
@@ -244,7 +275,6 @@ capstone project from Senior Software course.}
     \item[] \resconference{International Conference for High Performance
         Computing, Networking, Storage and Analysis (SC)}{Participant (2008)}
     \item[] \resconference{IT Security World}{Exhibitor (2008)}
-
 \end{itemize}
 
 \footnotetext[1]{Denotes a peer-reviewed publication}
@@ -252,35 +282,37 @@ capstone project from Senior Software course.}
 \begin{itemize}
 \item[] \resbib{``The Blunderdome: An Offensive Exercise for Building Network, Systems, and
     Web Security Awareness''\footnotemark[1]}{Paper at CSET 2010 at 19th USENIX Security
-    Symposium, September 2010. G Louthan, W Roberts, M Butler, and J Hale.}
+    Symposium, 2010. G Louthan, W Roberts, M Butler, and J Hale.}
 \item[] \resbib{``Toward Sensitive Information Redaction in a Collaborative,
     Multilevel Security Environment''\footnotemark[1]}{Paper at WikiSym 2010,
-    July 2010. P Gehres, N Singleton, G Louthan, and J Hale.}
+    2010. P Gehres, N Singleton, G Louthan, and J Hale.}
 \item[] \resbib{``Towards Formal Analysis of Cyber-Physical Systems''}
     {Presentation at the Cyber Security and
-    Critical Infrastructure Symposium at the 2010 TU Student Research Colloquium,
-    March 2010. G Louthan, N Singleton, M Papa, and J Hale.}
+    Critical Infrastructure Symposium at the 2010 TU Student 
+    Research Colloquium,
+    2010. G Louthan, N Singleton, M Papa, and J Hale.}
 \item[] \resbib{``Large-scale Multitouch Interactive Network Visualization''}{Poster at
-    the 18th USENIX Security Symposium, August 2009. C Pollet, G Louthan and J Hale.}
+	the 18th USENIX Security Symposium, 2009. C Pollet, 
+	G Louthan and J Hale.}
 \item[] \resbib{``SAND: An Architecture for Signature-based Automatic Network Protocol
-    Detection''}{Poster at the 18th USENIX Security Symposium, August 2009.
+    Detection''}{Poster at 18th USENIX Security Symposium, 2009.
     G Louthan and J Hale.}
 \item[] \resbib{``Hack Like the Movie Stars: A Big-Screen Multitouch Network Monitor''}
-    {Presentation at DEFCON 17, August 2009. G Louthan, C Pollet, and J Hale.}
+    {Presentation at DEFCON 17, 2009. G Louthan, C Pollet, and J Hale.}
 \item[] \resbib{``Toward Robust and Extensible Network Protocol
-    Identification''\footnotemark[1]}{Paper at ICOMP '09, July 2009. G Louthan, C McMillan,
+    Identification''\footnotemark[1]}{Paper at ICOMP '09, 2009. G Louthan, C McMillan,
     C Johnson, and J Hale.}
 \item[] \resbib{``Content-based Alternatives to Conventional Network
-    Monitoring''\footnotemark[1]}{Paper at CSIIRW '09, April 2009. G Louthan,
+    Monitoring''\footnotemark[1]}{Paper at CSIIRW '09, 2009. G Louthan,
     B Deetz, M Walker, and J Hale.}
 \item[] \resbib{``Communication without Boundaries: Breaching the Great Firewall of
-    China''}{Presentation at the 2009 TU Student Research Symposium and 84th
-    Regional Meeting of AAAS-SWARM, March 2009. G Louthan and J Hale. (Honorable
-    Mention for Best Presentation)}
+    China''}{Presentation at 2009 TU Student Research Symposium and
+    Regional Meeting of AAAS-SWARM, 2009. G Louthan and J Hale.}
 \end{itemize}
 
 \resheading{Awards and Honors}
 \begin{itemize}
+    \setlength{\itemsep}{0mm}
     \item[] \resentry{General Co-Chair, TU Student Research Colloquium}{2010}
     \item[] \resentry{Chair, TU Student Research Colloquium Computer Security 
                     \newline
@@ -289,33 +321,5 @@ capstone project from Senior Software course.}
     \item[] \resentry{Runner-Up, Donald W. Reynolds Governor's Cup \newline Business
                     Plan Competition}{2007}
     \item[] \resentry{University of Tulsa Presidential Scholar}{2005--09}
-\end{itemize}
-
-\resheading{Skill Set}
-\begin{itemize}
-\item[] \resdesc{Languages}{Python; Java; Lisp (Clojure and Common Lisp);
-    \LaTeX; Mathematica; some Ruby, Perl, PHP, and Objective C}
-\item[] \resdesc{Platforms}{Linux (especially Debian/Ubuntu, also OpenWRT/FreeWRT);
-Windows (modern workstation and server versions);
-VMWare ESXi (3 and 4); Mac OS X}
-\item[] \resdesc{Technologies}{Computer networking (TCP/IP); Virtualization;
-Firewalls (iptables and Shorewall,
-some pf and Cisco); Django; Version control (Subversion and Mercurial);
-Network monitoring and IDS; Android OS; iOS; Application
-security; Forensics; PKI}
-\item[] \resdesc{Processes}{Risk management for information systems (NIST SP 800-30),
-including some familiarity with IT aspects of Sarbanes-Oxley risk assessment
-(PCAOB Auditing Standard 5); Information Security Management (ISO/IEC 17799:2005);
-Information Assurance Controls and Accreditation (NIST SP 800-53 and DoDI 8510.01);
-Incident response and computer forensics; General policy development;
-General familiarity with NIST 800 series}
-\item[] \resdesc{Mathematics}{Numerical analysis; Finite difference methods;
-Finite element analysis;
-Real analysis; Discrete mathematics; Modern algebra; Finite state automata;
-Hybrid automata; Process calculi; Analysis of algorithms}
-\item[] \resdesc{Soft skills}{Flexible and even-tempered; Very strong written and verbal communication skills;
-Skilled at explaining technical concepts to laypeople;
-Comfortable in social settings; Experienced and extremely comfortable giving
-lectures and presentations}
 \end{itemize}
 \end{document}
