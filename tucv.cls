@@ -33,9 +33,13 @@
 \RequirePackage{array}
 \RequirePackage{color}
 \RequirePackage{calc}
+\RequirePackage{fancyhdr}
+\RequirePackage{xparse}
 
 % Color definition
 \definecolor{tucvheading}{gray}{0.85}
+% No line for the fancy header/footer
+\renewcommand{\headrulewidth}{0pt}
 
 % Margin setup
 \setlength{\voffset}{0.1in}
@@ -50,13 +54,19 @@
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
-\pagestyle{empty}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
 
 % Custom commands
 
 % Resume heading. Heading inside a shaded box.
-\newcommand{\resheading}[1]{{\large \colorbox{tucvheading}{\begin{minipage}
+%\newcommand{\resheading}[1]{{\large \colorbox{tucvheading}{\begin{minipage}
+%    {\textwidth-6.0pt}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
+
+\NewDocumentCommand\resheading{m}{{\large \colorbox{tucvheading}{\begin{minipage}
     {\textwidth-6.0pt}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
+
 
 % Raw two-column resume entry
 \newcommand{\resentry}[3][0pt]{
