@@ -1,3 +1,21 @@
+% (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author)
+%       http://mboedick.org
+% (c) 2003-2007 David J. Grant <davidgrant-at-gmail.com>
+%       http://www.davidgrant.ca
+% (c) 2007 Todd C. Miller <Todd.Miller@courtesan.com>
+%       http://www.courtesan.com/todd
+% (c) 2009-2010 George R. Louthan IV <georgerlouth@nthefourth.com>
+%       http://georgerloutha.nthefourth.com
+%
+% This work is licensed under the Creative Commons Attribution-Noncommercial-
+% Share Alike 2.5 License. To view a copy of this license, visit
+% http://creativecommons.org/licenses/by-nc-sa/2.5/ or send a letter to:
+%
+% Creative Commons
+% 543 Howard Street
+% 5th Floor
+% San Francisco, CA 94105
+
 % --Identification--
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{tucv}[2010/11/11 v0.1 TU-style CV class]
