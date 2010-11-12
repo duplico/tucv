@@ -1,10 +1,26 @@
-\ProvidesClass{resume}
+% --Identification--
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{tucv}[2010/11/11 v0.1 TU-style CV class]
+
+% --Preliminary declarations--
+
+% --Options--
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\ProcessOptions
+
+% --More declarations--
 \LoadClass[letterpaper,11pt]{article}
+
+% Package requirements
+\RequirePackage{array}
+\RequirePackage{color}
+\RequirePackage{calc}
+
+% Color definition
+\definecolor{tucvheading}{gray}{0.85}
 
 % Margin setup
 \setlength{\voffset}{0.1in}
-\setlength{\paperwidth}{8.5in}
-\setlength{\paperheight}{11in}
 \setlength{\headheight}{0in}
 \setlength{\headsep}{0in}
 \setlength{\textheight}{11in}
@@ -18,19 +34,10 @@
 \setlength{\tabcolsep}{0in}
 \pagestyle{empty}
 
-% Package requirements
-%\usepackage{tabularx}
-\usepackage{array}
-\usepackage{color}
-\usepackage{calc}
-
-% Color definition
-\definecolor{mygrey}{gray}{0.85}
-
 % Custom commands
 
 % Resume heading. Heading inside a shaded box.
-\newcommand{\resheading}[1]{{\large \colorbox{mygrey}{\begin{minipage}
+\newcommand{\resheading}[1]{{\large \colorbox{tucvheading}{\begin{minipage}
     {\textwidth-6.0pt}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
 
 % Raw two-column resume entry
@@ -86,7 +93,7 @@
 % School entry with extra description:
 % School, Location, Description
 \newcommand{\resschoolextra}[3]{
-    \resentry{\textbf{#1} \newline #3}{#2}
+    \resentry{\textbf{#1} \newline \textit{#3}}{#2}
 }
 
 % Degree entry:
