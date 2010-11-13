@@ -50,12 +50,11 @@ Address 2 & URL \\
     \resschool{School Name}{Location}
 % The degree entry is indented one level and provides a degree, major, date and
 % optional notes field.
-        \resdegreeextra{Degree}{Major}{Date}{
-            Notes}
+        \resdegree[Notes]{Degree}{Major}{Date}
         \resdegree{Degree}{Major}{Date}
 \item[]
 % The school entry with the notes field:
-    \resschoolextra{School Name}{Location}{Notes about school}
+    \resschool[Notes about school]{School Name}{Location}
 % This is a two-column entry, indented one level and providing a text field and
 % date field.
         \ressubentry{Certificate, etc.}{Date}
@@ -74,13 +73,10 @@ Address 2 & URL \\
 \item[]
 % Top-level entry for an employer, providing employer, location, and description
 % fields:
-\resemployer{Employer name}{Location}
-{Brief description of employer}
+\resemployer[Brief description of employer]{Employer name}{Location}
 % Indented entry for a job, providing title, start date, end date, and
 % description fields:
-    \resjob{Job title}{Start}{End}{
-        Description of job
-    }
+    \resjob[Description of job]{Job title}{Start}{End}
 \end{itemize}
 
 % This is a section for conferences.
