@@ -34,7 +34,8 @@
 \RequirePackage{color}
 \RequirePackage{calc}
 \RequirePackage{fancyhdr}
-\RequirePackage{xparse}
+%\RequirePackage{xparse}
+\usepackage{xparse}
 
 % Color definition
 \definecolor{tucvheading}{gray}{0.85}
@@ -61,15 +62,13 @@
 % Custom commands
 
 % Resume heading. Heading inside a shaded box.
-%\newcommand{\resheading}[1]{{\large \colorbox{tucvheading}{\begin{minipage}
-%    {\textwidth-6.0pt}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
-
 \NewDocumentCommand\resheading{m}{{\large \colorbox{tucvheading}{\begin{minipage}
     {\textwidth-6.0pt}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
 
 
-% Raw two-column resume entry
-\newcommand{\resentry}[3][0pt]{
+%Raw two-column resume entry
+
+\NewDocumentCommand\resentry{O{0pt}mm}{
     \begin{tabular*}{0.9\textwidth}[t]{@{\hspace{#1}}p{5.0in-#1}@{\extracolsep{\fill}}p{0.75in}}
         \raggedright #2 & #3
         \tabularnewline
@@ -77,14 +76,14 @@
 }
 
 % Raw indented two-column resume entry
-\newcommand{\ressubentry}[2]{
+\NewDocumentCommand\ressubentry{mm}{
     \resentry[10pt]{
         \setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
         #1}{#2}
 }
 
 % Raw single-column resume entry
-\newcommand{\resentrysinglecol}[2][0pt]{
+\NewDocumentCommand\resentrysinglecol{O{0pt}m}{
     \begin{tabular*}{0.9\textwidth}[t]{@{\hspace{#1}}p{0.9\textwidth-#1}}
         #2
         \tabularnewline
@@ -92,20 +91,19 @@
 }
 
 % Raw indented one-column resume entry
-\newcommand{\ressubentrysinglecol}[1]{
+\NewDocumentCommand\ressubentrysinglecol{m}{
     \resentrysinglecol[10pt]{
         \setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
         #1}
 }
 
-% Resume subheading:
-\newcommand{\ressubheading}[4]{
-    \resentry{\textbf{#1} \newline #3}{#2 \newline #4}    
-}
-
-% Resume subheading with extra information (trailing in left column)
-\newcommand{\ressubheadingextra}[5]{
-    \resentry{\textbf{#1} \newline #3 \newline #5}{#2 \newline #4}
+% Raw resume subheading:
+\NewDocumentCommand\ressubheading{ommmm}{
+    \resentry{\textbf{#2} \newline #4
+    \IfNoValueTF{#1}
+    {}
+    {\newline #1}
+    }{#3 \newline #5}    
 }
 
 % Specific entry types:
@@ -113,67 +111,74 @@
 % Education:
 
 % School entry:
-% School, Location
-\newcommand{\resschool}[2]{
-    \resentry{\textbf{#1}}{#2}
-}
-
-% School entry with extra description:
-% School, Location, Description
-\newcommand{\resschoolextra}[3]{
-    \resentry{\textbf{#1} \newline \textit{#3}}{#2}
+% [Description,] School, Location
+\NewDocumentCommand\resschool{omm}{
+    \resentry{\textbf{#2}
+    \IfNoValueTF{#1}
+    {}
+    {\newline \textit{#1}}
+    }{#3}
 }
 
 % Degree entry:
-% Degree, Major, Date
-\newcommand{\resdegree}[3]{
-    \ressubentry{#1 in #2}{#3}
-}
-
-% Degree entry with extra description:
-% Degree, Major, Date, Description
-\newcommand{\resdegreeextra}[4]{
-    \ressubentry{#1 in #2 \newline \textit{#4}}{#3}
+% [Description,] Degree, Major, Date
+\NewDocumentCommand\resdegree{ommm}{
+    \ressubentry{#2 in #3
+    \IfNoValueTF{#1}
+    {}
+    {\newline \textit{#1}}
+    }{#4}
+    %\ressubentry{#2 in #3}{#4}
 }
 
 % Combined school and degree (plus other) entry:
 % University, Degree, Major, Date, Location, Other
-\newcommand{\reseducation}[6]{
-    \ressubheadingextra{#1}{#5}{#2 #3}{#4}{#6}
+\NewDocumentCommand\reseducation{mmmmmm}{
+    \ressubheading[#6]{#1}{#5}{#2 #3}{#4}
 }
 
 % Work experience:
 % Employer entry:
-% Employer, Location, Description
-\newcommand{\resemployer}[3]{
-    \resentry{\textbf{#1} \newline #3}{#2}
+% [Description,] Employer, Location
+\NewDocumentCommand\resemployer{omm}{
+    \resentry{\textbf{#2} 
+    \IfNoValueTF{#1}
+    {}
+    {\newline #1}
+    }{#3}
 }
 
 % Job entry (part of an employer block):
-% Title, Start Date, End Date, Description
-\newcommand{\resjob}[4]{
+% [Description,] Title, Start Date, End Date
+\NewDocumentCommand\resjob{ommm}{
     \resentry[10pt]{
-\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex} \textbf{#1} \newline #4}{#2 -- \newline #3}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex} \textbf{#2} 
+    \IfNoValueTF{#1}
+    {}
+    {\newline #1}
+    }{#3 -- \newline #4}
 }
 
 % Conference:
 % Name, Years/roles
-\newcommand{\resconference}[2]{
-    \resentrysinglecol{\raggedright \textbf{#1} #2}
+% TODO: Add description
+\NewDocumentCommand\resconference{omm}{
+    \resentrysinglecol{\raggedright \textbf{#2} #3}
 }
 
 % Subconference (use under a conference for workshops, etc.):
 % Name, Years/roles
-\newcommand{\ressubconference}[2]{
-    \resentrysinglecol[10pt]{\textbf{#1} #2}
+% TODO: Add description
+\NewDocumentCommand\ressubconference{omm}{
+    \resentrysinglecol[10pt]{\textbf{#2} #3}
 }
 
 % Single column item/description pair:
-\newcommand{\resdesc}[2]{
+\NewDocumentCommand\resdesc{mm}{
     \resentrysinglecol{\raggedright \textbf{#1} #2}
 }
 
 % Single column bib pair:
-\newcommand{\resbib}[2]{
+\NewDocumentCommand\resbib{mm}{
     \resentrysinglecol{\raggedright \textbf{#1} #2}
 }
