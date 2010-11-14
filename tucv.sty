@@ -50,7 +50,8 @@
 \NewDocumentCommand\resheading{m}{{\large \colorbox{tucvheading}{\begin{minipage}
     {\textwidth-6.0pt}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
 \NewDocumentCommand\resentry{O{0pt}mm}{
-    \begin{tabular*}{0.9\textwidth}[t]{@{\hspace{#1}}p{5.0in-#1}@{\extracolsep{\fill}}p{0.75in}}
+    \begin{tabular*}{0.9\textwidth}[t]{@{\hspace{#1}}
+            p{5.0in-#1}@{\extracolsep{\fill}}p{0.75in}}
         \raggedright #2 & #3
         \tabularnewline
     \end{tabular*}
