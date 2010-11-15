@@ -19,6 +19,8 @@ tucv_ex.tex and tucv_ex.pdf.
 
 2 - Installation
 
+Dependencies: array, calc, color, fancyhdr, xparse.
+
 The tucv package provides a single style, tucv.sty, which is generated 
 by running latex on tucv.ins. To use, place tucv.ins in a directory 
 searched by the latex compiler.
